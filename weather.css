@@ -12,9 +12,6 @@
         justify-content:space-around;
         text-align: center;
         color:white;
-        visibility:hidden;
-
-        
     }.open{
         visibility:hidden;
     }#allow{
@@ -56,7 +53,6 @@
     color:white;
     background-color: #679aff;
     padding:10px;
-
 }#temp{
     font-size: 90px;
     margin:0px;
@@ -64,12 +60,9 @@
     /*tempstyle*/
    /* transform:translate(-35%,-110%) scale(0.8);
     color:white;*/
-
 }#feels{
     margin:0px;
     font-size: 15px;
-   
-    
 }#minmax{
     margin:0px
 }#location{
@@ -97,8 +90,8 @@
 }.ask{
     position:absolute;
     left:83%;
-    width:50px;
-    height:50px;
+    width:45px;
+    height:45px;
     top:240px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 30px;
@@ -236,9 +229,9 @@
 .box{
     width:93%;
     height:6%;
-    background-color: #2f1a6e63;
+    background-color: #0000006d;
     top:8%;
-    color:white;
+    color:rgb(255, 255, 255);
     overflow-x: scroll;
     display:flex;
     border-radius: 20px;
@@ -247,18 +240,14 @@
     scrollbar-width:none;
     user-select: none;
 }.tt{
-   width:60px;
-   height:50px;
-   margin-top: -9px;
-   margin-left: 30px;
-   margin-bottom: -10px;
+    width:100px;
+    height:40px;
+   margin-left: 20px;
    font-size: 14px;
    align-self: center;
    display:flex;
    flex-direction: column;
    text-align: center;
-   padding:10px;
-   width:70px;
    margin-bottom: 20px;
 
 
@@ -296,7 +285,7 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
     align-items: center;
     height:4%;
     overflow: hidden;
-    background:rgba(29, 26, 175, 0.297);
+    background: #0000006d;
     margin-top: 225px;
 }
 .tag{
