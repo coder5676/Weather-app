@@ -111,6 +111,7 @@ function daynightanimations(sunrise,sunset,descr){
     if(res==0){
         textcolor="white";
         color=nightsky;
+        
         document.getElementById("cloud1").style.backgroundColor="grey";
         if(rainatm.indexOf(descr)>-1){
             document.getElementById("show").style.backgroundColor="white";
@@ -170,7 +171,7 @@ window.addEventListener('scroll',()=>{
 const y=window.scrollY;
 if(y==0){
 document.getElementById("scrollbox").style.backgroundColor="";
-document.getElementById("descdata").style.background="rgba(29, 26, 175, 0.297)";
+document.getElementById("descdata").style.background=" #0000006d";
 document.getElementById("scrollbox").style.transitionDuration="0s";
 document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="110%";
@@ -348,7 +349,7 @@ plotgraph(arr2,x2values,"mychart2");
 }
 function weathericon(description){
     const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze"];
-    const descicon=["🔆","🔅","🌨️","🌥️","🌧️","☔","⚡","☃️","😶‍🌫️","☁️","🌧️","☔","⛈️","😶‍🌫️"];
+    const descicon=["☀️","⛅","🌨️","🌥️","🌧️","☔","⚡","☃️","😶‍🌫️","☁️","🌧️","☔","⛈️","😶‍🌫️"];
     const position=desc.indexOf(description);
     return descicon[position];
 }
