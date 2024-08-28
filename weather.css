@@ -12,6 +12,7 @@
         justify-content:space-around;
         text-align: center;
         color:white;
+        visibility:hidden;
 
         
     }.open{
@@ -44,12 +45,11 @@
     height:110%;
     top:0px;
     left:0px;
-  /* background-color:#79c2f3;*/
    background-position: center;
    background-size: cover;
     user-select: none;
     border: 0px;
-  background:linear-gradient(130deg,#76a5e3,#0162ff);
+   background:linear-gradient(130deg,#76a5e3,#0162ff);
     text-align: center;
     font-family: Rubik,Arial, Helvetica, sans-serif;
 }#day{
@@ -99,7 +99,7 @@
     left:83%;
     width:50px;
     height:50px;
-    top:244px;
+    top:240px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 30px;
     color:white;
@@ -139,9 +139,10 @@
     
 
 }@keyframes cloud{
-40%{padding:3px;}
+  30%{width:60px;height:25px}
+    }
 
-}
+
 #icon{
    font-size: 25px;
 }.swipebox{
@@ -168,7 +169,7 @@
     position:absolute;
     top:10%;
     font-family: Rubik,Arial, Helvetica, sans-serif;
-  width:250px;
+  width:80%;
   height:40px;
   border-radius: 10px;
   border: 0px;
@@ -178,13 +179,13 @@
 }.swipebox button{
     position:absolute;
     width:50px;
-    height:50px;
-    border: 3px solid black;
-   top:9%;
+    height:40px;
+   top:10%;
     right:10%;
-    background-color: #ffffff;
+    border:0px;
+    background-color: #000000;
     font-size: 20px;
-    border-radius: 30px;
+    border-radius: 0px 10px 10px 0px;
 }
 #cityinfo{
     position:absolute;
@@ -248,8 +249,10 @@
 }.tt{
    width:60px;
    height:50px;
+   margin-top: -9px;
    margin-left: 30px;
-   font-size: 15px;
+   margin-bottom: -10px;
+   font-size: 14px;
    align-self: center;
    display:flex;
    flex-direction: column;
@@ -286,28 +289,28 @@
     from{
   transform:translate(0%,10%)rotate(20deg);
 }
-to{transform:translate(-3000%,600%) rotate(20deg)}
+to{transform:translate(-3000%,600%) rotate(20deg)};
 }#descdata{
     display:flex;
     flex-direction: column;
     align-items: center;
-    height:5%;
+    height:4%;
     overflow: hidden;
     background:rgba(29, 26, 175, 0.297);
-    margin-top: 230px;
+    margin-top: 225px;
 }
 .tag{
    position: absolute;
     width:40%;
     height:140px;
-    background-color:rgb(253, 182, 253);
+    background-color:rgba(22, 32, 75, 0.671);
     border-radius: 30px;
     display:flex;
     flex-direction:column;
     justify-content: center;
     text-align: center;
     align-items: center;
-    color:rgb(158, 6, 143);
+    color:rgb(255, 255, 255);
     font-family: Rubik,Arial, Helvetica, sans-serif;
 }#feels{
     top:67%;
@@ -315,63 +318,30 @@ to{transform:translate(-3000%,600%) rotate(20deg)}
 }#humidity{
     left:55%;
     top:67%;
-    background-color:rgb(148, 218, 253);
-    color:rgb(6, 115, 158);
 }
 #speed{
     top:76%;
     left:5%;
-    background-color:#f3caae;
-    color:rgb(213, 147, 16);
 }#air{
     top:76%;
     left:55%;
-    background-color: rgb(192, 192, 255) ;
-    color:rgb(95, 6, 158);
 
 
 }#pressure{
     top:85%;
     left:5%;
-    background-color:  rgb(191, 254, 236);
-    color:rgb(6, 158, 123);
-
-
-
 }#visibility{
  top:85%;
     left:55%;
-   background-color: rgb(134, 172, 242) ;
-   color:rgb(6, 47, 158);
-
-
 }#sun{
     position:absolute;
     width:90%;
     height:100px;
     top:94%;
     left:5%;
-    color:black;
-    background-color:#fcfcfc;
+    color:rgb(255, 255, 255);
+    background-color:#180c6f;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
 }
-/*#toggle{
-    position:absolute;
-    background-color: #ffffff;
-    width:100px;
-    height:40px;
-    right:10px;
-    top:-5px;
-    border-radius: 30px;
-}#mark{
-    position:absolute;
-    right:60px;
-    background-color: rgb(255, 179, 0);
-    width:50px;
-    height:50px;
-    border-radius:30px;
-    font-size: 25px;
-    top:-5px
-}*/
