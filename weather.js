@@ -95,10 +95,11 @@ else{
 }
 /*scroll animation*/
 var nightsky="linear-gradient(130deg,#4d5056,#191b1c)";
-var cloudysky="linear-gradient(130deg,#76a5e3,#0162ff)";
+var cloudysky="linear-gradient(230deg,rgb(19, 150, 180),rgb(131, 212, 255))";
 var rainsky="linear-gradient(130deg,#9cb4c5,#2e3132)";
 var daysky="linear-gradient(130deg,#b8f3ff,#00e5ff)";
 var color="";
+var boxcolor="";
 var textcolor="";
 /*modyfying color*/
 function daynightanimations(sunrise,sunset,descr){
@@ -108,7 +109,7 @@ function daynightanimations(sunrise,sunset,descr){
     const st=set.getHours();
     const day=new Date;
     const d=day.getHours();
-    const rainatm=["shower rain","rain","thunderstorm","light rain","moderate rain","heavy intensity rain"];
+    const rainatm=["shower rain","rain","thunderstorm","light rain","moderate rain","heavy intensity rain","light intensity shower rain"];
     const normalday=["clear sky","few clouds"];
     const nosun=["scattered clouds","broken clouds","overcast clouds"];
     const res=check(rt,st,d);
@@ -116,27 +117,34 @@ function daynightanimations(sunrise,sunset,descr){
     if(res==0){
         textcolor="white";
         color=nightsky;
-        
         document.getElementById("cloud1").style.backgroundColor="grey";
         if(rainatm.indexOf(descr)>-1){
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="visible";
             raining();
+            boxcolor="black";
+
         }
         else if(normalday.indexOf(descr)>-1){
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="hidden";
             norain();
+        boxcolor="black";
+
         }
         else if(nosun.indexOf(descr)>-1){
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="visible";
             norain();
+        boxcolor="black";
+
         }
         else{
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="visible";
             norain();
+        boxcolor="black";
+
         }
     }
     else{
@@ -147,24 +155,30 @@ function daynightanimations(sunrise,sunset,descr){
         document.getElementById("show").style.backgroundColor="white";
         document.getElementById("cloud1").style.visibility="visible";
         raining();
+        boxcolor="black";
     }
     else if(normalday.indexOf(descr)>-1){
         color=daysky;
         document.getElementById("show").style.backgroundColor="Yellow";
         document.getElementById("cloud1").style.visibility="hidden";
         norain();
+        boxcolor="white";
     }
     else if(nosun.indexOf(descr)>-1){
         color=cloudysky;
         document.getElementById("show").style.backgroundColor="bisque";
         document.getElementById("cloud1").style.visibility="visible";
         norain();
+        boxcolor="white";
+
     }
     else{
         document.getElementById("show").style.backgroundColor="white";
         color="linear-gradient(130deg,#cfdef2,#b6bac3)";
         document.getElementById("cloud1").style.visibility="visible";
         norain();
+        boxcolor="white";
+
     }
     }
     };
@@ -176,7 +190,7 @@ window.addEventListener('scroll',()=>{
 const y=window.scrollY;
 if(y==0){
 document.getElementById("scrollbox").style.backgroundColor="";
-document.getElementById("descdata").style.background=" #0000006d";
+document.getElementById("descdata").style.background=boxcolor;
 document.getElementById("scrollbox").style.transitionDuration="0s";
 document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="110%";
@@ -229,6 +243,7 @@ return time+":"+minutes;
 const apikey="771268cf58226d55a8385e574cac8de9";
 /*get weather by location*/
 async function getweatherbylocation(lat,lon){
+    try{
 const url=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
 const url2=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
 const response=await fetch(url);
@@ -239,12 +254,17 @@ console.log(data);
 console.log(data2);
 document.getElementById("place").innerHTML=data2.name;
 setdetails(data2);
-setdata(data);
+setdata(data);}
+catch(err){
+    document.getElementById("temp").innerHTML="🤕";
+
+}
 }
 
 /*getting weather by city name*/
 
 async function getweatherbycity(cityname){
+    try{
 const url=`https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=${apikey}&units=metric`;
 const url2=`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apikey}&units=metric`;
 const response=await fetch(url);
@@ -256,8 +276,13 @@ console.log(data2);
 document.getElementById("citytemp").innerHTML=data2.main.temp;
 document.getElementById("tempicon1").innerHTML=weathericon(data2.weather[0].description);
 setdetails(data2);
-setdata(data);
+setdata(data);}
+catch(err){
+    document.getElementById("temp").innerHTML="🤕";
+
 }
+}
+
 
 var fg="";
 var todavg=0;
@@ -294,6 +319,11 @@ document.getElementById("main").style.background=color;
 document.getElementById("description").style.color=textcolor;
 document.getElementById("location").style.color=textcolor;
 document.getElementById("temp").style.color=textcolor;
+for(i=0;i<6;i++){
+    document.getElementsByClassName("box")[i].style.backgroundColor=boxcolor;
+    document.getElementsByClassName("box")[i].style.color=textcolor;
+}
+
 hum=data2.main.humidity;
 descrp=data2.weather[0].description;
 vis=data2.visibility;
@@ -353,8 +383,8 @@ plotgraph(arr,xvalues,"myChart");
 plotgraph(arr2,x2values,"mychart2");
 }
 function weathericon(description){
-    const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze"];
-    const descicon=["☀️","⛅","🌨️","🌥️","🌧️","☔","⚡","☃️","😶‍🌫️","☁️","🌧️","☔","⛈️","😶‍🌫️"];
+    const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze","light intensity shower rain"];
+    const descicon=["☀️","⛅","🌨️","🌥️","🌧️","☔","⚡","☃️","😶‍🌫️","☁️","🌧️","☔","⛈️","😶‍🌫️","🦚"];
     const position=desc.indexOf(description);
     return descicon[position];
 }
@@ -364,8 +394,8 @@ let day=data.getDay();
 return day;
 }
 function desc(description){
-const quote=[" it's a nice weather outside.","Clouds are beautiful outside","Don't forget your umbrella","Winds are speedy today","Look plants can dance too.","Weather is getting watery.","Avoid going out it's lightning.","Nice day for a snowman.","Drive safe low visibility","It could rain just wait","Nice time for a tea","Outside is beautiful in rain.","Heavy rain avoid going out today","It may be foggy outside"];
-const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze"];
+const quote=[" it's a nice weather outside.","Clouds are beautiful outside","Don't forget your umbrella","Winds are speedy today","Look plants can dance too.","Weather is getting watery.","Avoid going out it's lightning.","Nice day for a snowman.","Drive safe low visibility","It could rain just wait","Nice time for a tea","Outside is beautiful in rain.","Heavy rain avoid going out today","It may be foggy outside","Raining slowly carry an umbrella."];
+const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze","light intensity shower rain"];
 const position=desc.indexOf(description);
 document.getElementById("desc").innerHTML=quote[position];
 };
