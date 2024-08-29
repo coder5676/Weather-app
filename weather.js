@@ -191,6 +191,7 @@ const y=window.scrollY;
 if(y==0){
 document.getElementById("scrollbox").style.backgroundColor="";
 document.getElementById("descdata").style.background=boxcolor;
+document.getElementById("descdata").style.color=textcolor;
 document.getElementById("scrollbox").style.transitionDuration="0s";
 document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="110%";
@@ -206,16 +207,18 @@ document.getElementById("svg").style.visibility="visible";
 document.getElementById("main").style.background=color;
 document.getElementById("description").style.color=textcolor;
 document.getElementById("location").style.color=textcolor;
+
 }
 
 else{
+document.getElementById("descdata").style.color="white";
 document.getElementById("scrollbox").style.background="black";
 document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="20%";
 document.getElementById("main").style.zIndex="2";
 document.getElementById("main").style.background="linear-gradient(120deg,black,black)";
 document.getElementById("descdata").style.background="linear-gradient(120deg,rgb(0, 200, 255),rgb(153, 0, 255))";
-document.getElementById("temp").style.transform="translate(-35%,-100%) scale(0.5)";
+document.getElementById("temp").style.transform="translate(-35%,-80%) scale(0.5)";
 document.getElementById("temp").style.color="white";
 document.getElementById("description").style.transform="translate(0%,-80%) scale(1.5)";
 document.getElementById("description").style.color="white";
