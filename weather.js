@@ -1,4 +1,9 @@
-
+document.getElementById("allow").addEventListener("click",()=>{
+    document.documentElement.requestFullscreen();
+}); 
+document.getElementById("disallow").addEventListener("click",()=>{
+    document.documentElement.requestFullscreen();
+});
 function allow(){
     document.getElementById("perm").classList.add("open");
     showlocationdata();
