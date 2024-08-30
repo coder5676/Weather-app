@@ -12,7 +12,7 @@
         justify-content:space-around;
         text-align: center;
         color:white;
-        visibility: hidden;
+      
     }.open{
         visibility:hidden;
     }#allow{
