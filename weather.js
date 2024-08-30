@@ -228,7 +228,7 @@ document.getElementById("show").style.transform="translate(40%,70%)";
 document.getElementById("feels").style.visibility="hidden"
 document.getElementById("minmax").style.visibility="hidden";
 document.getElementById("hh").style.visibility="hidden";
-document.getElementById("svg").style.visibility="hidden";
+
 
 }
 });
@@ -311,6 +311,7 @@ document.getElementById("s").innerHTML=data2.wind.speed;
 document.getElementById("a").innerHTML=data2.wind.deg;
 document.getElementById("p").innerHTML=data2.main.pressure;
 document.getElementById("v").innerHTML=data2.visibility;
+document.getElementById("volume").innerHTML=data2.clouds.all;
 document.getElementById("sunrise").innerHTML=convert(data2.sys.sunrise);
 document.getElementById("sunset").innerHTML=convert(data2.sys.sunset);
 daynightanimations(data2.sys.sunrise,data2.sys.sunset,data2.weather[0].description);
