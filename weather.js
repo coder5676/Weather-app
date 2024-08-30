@@ -212,6 +212,7 @@ document.getElementById("location").style.color=textcolor;
 
 else{
 document.getElementById("descdata").style.color="white";
+document.getElementById("svg").style.visibility="hidden";
 document.getElementById("scrollbox").style.background="black";
 document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="20%";
