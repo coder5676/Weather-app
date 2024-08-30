@@ -12,6 +12,7 @@
         justify-content:space-around;
         text-align: center;
         color:white;
+        visibility: hidden;
     }.open{
         visibility:hidden;
     }#allow{
@@ -46,7 +47,7 @@
    background-size: cover;
     user-select: none;
     border: 0px;
-   background:linear-gradient(120deg,#68a8e0,#0073ff);
+   background:linear-gradient(120deg,#4cb7e4,#0ab6b6);
     text-align: center;
     font-family: Rubik,Arial, Helvetica, sans-serif;
 }#day{
@@ -234,11 +235,11 @@
     justify-content: space-between;
     scrollbar-width:none;
     user-select: none;
-   
-}.box2{
+}
+.box2{
     width:95%;
     height:3.5%;
-    background-color: #1f2027;
+    background-color: #212020;
     top:8%;
     color:rgb(255, 255, 255);
     display:flex;
@@ -264,8 +265,8 @@
 .tt{
     width:100px;
     height:40px;
-   margin-left: 30px;
-   font-size: 14px;
+   margin-left: 34px;
+   font-size: 13px;
    align-self: center;
    display:flex;
    flex-direction: column;
@@ -323,6 +324,4 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
 }#sun h1{
     font-size: 15px;
     margin-left: 0px;
-
-
 }
