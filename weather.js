@@ -40,7 +40,7 @@ document.getElementById("longitude").innerHTML=position.coords.longitude;
 
 function showcity(){
 if(document.getElementById("city").value!=""){
-const city=document.getElementById("city").value;
+const city=document.getElementById("city").value.trim();
 document.getElementById("name").innerHTML=city;}
 
 
