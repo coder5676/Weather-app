@@ -95,7 +95,7 @@ else{
 }
 /*scroll animation*/
 var nightsky="linear-gradient(130deg,#4d5056,#191b1c)";
-var cloudysky="linear-gradient(120deg,#68a8e0,#0073ff)";
+var cloudysky="linear-gradient(120deg,#4cb7e4,#0ab6b6)";
 var rainsky="linear-gradient(130deg,#9cb4c5,#2e3132)";
 var daysky="linear-gradient(130deg,#b8f3ff,#00e5ff)";
 var color="";
@@ -148,7 +148,6 @@ function daynightanimations(sunrise,sunset,descr){
         }
     }
     else{
-        textcolor="black";
         document.getElementById("cloud1").style.backgroundColor="white";
     if(rainatm.indexOf(descr)>-1){
         color=rainsky;
@@ -156,6 +155,7 @@ function daynightanimations(sunrise,sunset,descr){
         document.getElementById("cloud1").style.visibility="visible";
         raining();
         boxcolor="black";
+        textcolor="white";
     }
     else if(normalday.indexOf(descr)>-1){
         color=daysky;
@@ -163,13 +163,17 @@ function daynightanimations(sunrise,sunset,descr){
         document.getElementById("cloud1").style.visibility="hidden";
         norain();
         boxcolor="white";
+        textcolor="black";
+
     }
     else if(nosun.indexOf(descr)>-1){
         color=cloudysky;
         document.getElementById("show").style.backgroundColor="bisque";
         document.getElementById("cloud1").style.visibility="visible";
         norain();
-        boxcolor="white";
+        boxcolor="#2C2C2D";
+        textcolor="white";
+
 
     }
     else{
@@ -178,6 +182,8 @@ function daynightanimations(sunrise,sunset,descr){
         document.getElementById("cloud1").style.visibility="visible";
         norain();
         boxcolor="white";
+        textcolor="black";
+
 
     }
     }
@@ -208,11 +214,12 @@ document.getElementById("main").style.background=color;
 document.getElementById("description").style.color=textcolor;
 document.getElementById("location").style.color=textcolor;
 
+
 }
 
 else{
+    document.getElementById("svg").style.visibility="hidden";
 document.getElementById("descdata").style.color="white";
-document.getElementById("svg").style.visibility="hidden";
 document.getElementById("scrollbox").style.background="black";
 document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="20%";
@@ -261,6 +268,10 @@ setdetails(data2);
 setdata(data);}
 catch(err){
     document.getElementById("temp").innerHTML="🤕";
+    document.getElementById("location").innerHTML="Location data is unavailable..";
+   
+
+
 
 }
 }
@@ -283,6 +294,10 @@ setdetails(data2);
 setdata(data);}
 catch(err){
     document.getElementById("temp").innerHTML="🤕";
+    document.getElementById("location").innerHTML="City not found..";
+    document.getElementById("description").innerHTML="Remove end spaces if any and try again...";
+
+
 
 }
 }
@@ -343,7 +358,7 @@ const timearr=["ti1","ti2","ti3","ti4","ti5","ti6","ti7","ti8","ti9","ti10","ti1
 
 for (i=0;i<40;i++){
 let des=data.list[i].weather[0].description;
-document.getElementById(temparr[i]).innerHTML=Math.round(data.list[i].main.temp )+"°"+ weathericon(des);
+document.getElementById(temparr[i]).innerHTML=Math.round(data.list[i].main.temp )+"°"+" "+ weathericon(des);
 document.getElementById(timearr[i]).innerHTML=String(data.list[i].dt_txt).slice(11,16);
 }
 var d=getday();
