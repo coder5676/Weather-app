@@ -95,7 +95,7 @@ else{
 }
 /*scroll animation*/
 var nightsky="linear-gradient(130deg,#4d5056,#191b1c)";
-var cloudysky="linear-gradient(230deg,rgb(19, 150, 180),rgb(131, 212, 255))";
+var cloudysky="linear-gradient(120deg,#68a8e0,#0073ff)";
 var rainsky="linear-gradient(130deg,#9cb4c5,#2e3132)";
 var daysky="linear-gradient(130deg,#b8f3ff,#00e5ff)";
 var color="";
