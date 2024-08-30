@@ -12,7 +12,7 @@
         justify-content:space-around;
         text-align: center;
         color:white;
-   
+        visibility: hidden;
     }.open{
         visibility:hidden;
     }#allow{
@@ -47,7 +47,7 @@
    background-size: cover;
     user-select: none;
     border: 0px;
-   background:linear-gradient(230deg,rgb(19, 150, 180),rgb(131, 212, 255));
+   background:linear-gradient(120deg,#68a8e0,#0073ff);
     text-align: center;
     font-family: Rubik,Arial, Helvetica, sans-serif;
 }#day{
@@ -310,11 +310,20 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
 }
 #sun{
     position:absolute;
-    width:90%;
-   height:5%;
-    top:93.5%;
-    left:5%;
-    background-color:#ffffff00;
+    width:95%;
+   height:4%;
+    top:95.4%;
+    background-color:#ffffff;
     display:flex;
-    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color:rgb(0, 0, 0);
+}
+#sun p{
+    color:white;
+}#sun h1{
+    font-size: 15px;
+    margin-left: 0px;
+
+
 }
