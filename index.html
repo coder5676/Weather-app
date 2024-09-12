@@ -10,15 +10,13 @@
 </head>
 <body onload="getlocation()">
     <div id="perm" class="perm"style="font-family:Rubik,Arial, Helvetica, sans-serif;">
-        <img src="front.webp" style="max-width: 400px;align-self: center; min-width: 200px;">
-        <h1 style="font-size: 40px;">Welcome</h1>
-        <p style="margin-top: -10px;">Proceed with your current location forecast.</p>
-        <button id="allow" type="submit" onclick="allow()">Sure</button>
-        <button id="disallow" type="submit" onclick="disallow()">No</button>
+     <h1>IT'S ALWAYS NICE TO SEE YOU.....</h1>
+       <img src="WEATHERICON.webp" style="width:350px;margin-top: 0px;">
+        <button id="allow" type="submit" onclick="allow()">Get started ⇾</button>
     </div>
     <div id="main">
      <div id="hh" class="hh"><p id="top" class="top"></p></div>
-        <svg  id="svg" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;top:25%;z-index:-1;width:100%;max-height:200px;" viewBox="0 -30 1440 320"><path fill="black" fill-opacity="0.2" d="M0,320L40,298.7C80,277,160,235,240,197.3C320,160,400,128,480,101.3C560,75,640,53,720,85.3C800,117,880,203,960,202.7C1040,203,1120,117,1200,112C1280,107,1360,181,1400,218.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,570,80,320,40,320L0,320Z"></path></svg>
+        <svg  id="svg" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;top:22%;z-index:-1;width:100%;max-height:150px; " viewBox="0 -30 1440 320"><path fill="black" fill-opacity="0.2" d="M0,320L40,298.7C80,277,160,235,240,197.3C320,160,400,128,480,101.3C560,75,640,53,720,85.3C800,117,880,203,960,202.7C1040,203,1120,117,1200,112C1280,107,1360,181,1400,218.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,570,80,320,40,320L0,320Z"></path></svg>
        
         <h1 id="r1" class="r1"></h1>
         <h1 id="r2" class="r2"></h1>
@@ -29,68 +27,73 @@
         <button id="but1" type="submit" class="but1" onclick="openswipebox()">!!!</button>
         <div id="main1">
 
-            <p id="location">undefined,nn</p>
-            <p id="description">none</p>
+            <p id="location">fnkren</p>
+            <p id="description">enjce</p>
             <p id="cloud1"></p>
             <p id="show"></p>
-            <h1 id="temp"style="margin-left:20px">00°</h1>
-            <p id="feels" style="color:white">Feels Like 00°</p>
-            <p id="minmax" style="color:white">Min: 00° | Max: 00°</p>
+            <h1 id="temp"style="margin-left:20px">34</h1>
+           <table><tr><td><p id="feels" >feels like</p></td>
+            <td><p id="minmax"> min max</p></td></tr></table>
         </div>
     </div>
          </div>
  <div id="swipebox" class="swipebox">
     <input id="city" placeholder="City/Country🚌">
     <button id="search" onclick="showcity()">🔍</button>
-    <p style="position:absolute;top:18%">My city</p>
+    <p style="margin-top: 200px;">My city</p>
     <div id="cityinfo" onclick="closeswipebox()"><p id="name"></p><p id="citytemp"></p><p id="tempicon1"></p></div>
-    <p style="position:absolute;top:33%">My location</p>
-    <div id="locationinfo" onclick="closeswipebox2()"><p id="latitude">none</p><p id="longitude">none</p><p id="place">none</p></div>
+    <p>My location</p>
+    <div id="locationinfo" onclick="closeswipebox2()"><p id="latitude"></p><p id="longitude"></p><p id="place"></p></div>
     <button id="getlocation" onclick="getlocation()">◉ Location</button>
+    <button id="add" onclick="addcity()">+</button>
+
 </div>
 <div id="scrollbox">
-    <div id="descdata" class="box" >
-        <h1 id="desc" style="font-size: 17px;">Grab an umbrella today.</h1>
-        <p id="desc2" style="font-size: 14px;margin-top:0px;">humidity is 90% today with clouds.</p>
+    <div id="descdata" class="box">
+        <h1 id="desc" style="font-size: 17px;"></h1>
+        <p id="desc2" style="font-size: 14px;margin-top:0px;"></p>
         <button id="ask" type="submit" class="ask" onclick=openassistant()>.</button>
     </div>
     <div id="todaydata" class="box" style="background-color: white;color:black;">
-        <h1 style="position:absolute;left:7%;margin-top: 10px;font-size: 15px;">Today's 3 hourly forcast ◷</h1>
-        <div class="tt"><p id="t1">34🌦️<p  id="ti1" style="margin-top: 0px;">9:00am</p> </p></div>
-        <div  class="tt"><p id="t2"> 34🌦️<p id="ti2" style="margin-top: 0px;">12:00pm</p></p></div>
-        <div  class="tt"><p id="t3"> 34🌦️<p id="ti3" style="margin-top: 0px;">3:00pm</p></p></div>
-        <div  class="tt"><p id="t4">34🌦️<p id="ti4" style="margin-top: 0px;">6:00pm</p> </p></div>
-        <div  class="tt"><p id="t5"> 34🌦️<p id="ti5"style="margin-top: 0px;">9:00pm</p></p></div>
-        <div  class="tt"><p id="t6"> 34🌦️<p id="ti6" style="margin-top: 0px;">12:00pm</p></p></div>
-        <div  class="tt"><p id="t7"> 34🌦️<p id="ti7"style="margin-top: 0px;">3:00am</p></p></div>
-        <div  class="tt"><p id="t8"> 34🌦️<p id="ti8"style="margin-top: 0px;">6:00am</p></p></div>
+       
+        <h1 style="position:absolute;margin-left:10px;margin-top: 10px;font-size: 15px;">Today's 3 hourly forecast Ø</h1>
+        <div class="tt"><p id="t1"><p  id="ti1" style="margin-top: 0px;"></p> </p></div>
+        <div  class="tt"><p id="t2"> <p id="ti2" style="margin-top: 0px;"></p></p></div>
+        <div  class="tt"><p id="t3"> <p id="ti3" style="margin-top: 0px;"></p></p></div>
+        <div  class="tt"><p id="t4"><p id="ti4" style="margin-top: 0px;"></p> </p></div>
+        <div  class="tt"><p id="t5"> <p id="ti5"style="margin-top: 0px;"></p></p></div>
+        <div  class="tt"><p id="t6"> <p id="ti6" style="margin-top: 0px;"></p></p></div>
+        <div  class="tt"><p id="t7"> <p id="ti7"style="margin-top: 0px;"></p></p></div>
+        <div  class="tt"><p id="t8"><p id="ti8"style="margin-top: 0px;"></p></p></div>
+
     </div>
-    
+    <canvas id="myChart" class="box" style="width: 97%;max-height: 150px;height:16%;background-color: rgb(255, 255, 255);"></canvas>
+  
         
         <div id="day2data" class="box" style="background-color: white;color:black;">
-            <h1 style="position:absolute;left:7%;margin-top: 10px;font-size: 15px;" id="y1">Tommorows's 3 hourly forcast ◷</h1>
-            <div class="tt"><p id="t9">34🌦️<p id="ti9"style="margin-top: 0px;">9:00am</p> </p></div>
-            <div  class="tt"><p id="t10"> 34🌦️<p id="ti10" style="margin-top: 0px;">12:00pm</p></p></div>
-            <div  class="tt"><p id="t11"> 34🌦️<p id="ti11"style="margin-top: 0px;">3:00pm</p></p></div>
-            <div  class="tt"><p id="t12">34🌦️<p id="ti12"style="margin-top: 0px;">6:00pm</p> </p></div>
-            <div  class="tt"><p id="t13"> 34🌦️<p id="ti13"style="margin-top: 0px;">9:00pm</p></p></div>
-            <div  class="tt"><p id="t14"> 34🌦️<p id="ti14"style="margin-top: 0px;">12:00pm</p></p></div>
-            <div  class="tt"><p id="t15"> 34🌦️<p id="ti15"style="margin-top: 0px;">3:00am</p></p></div>
-            <div  class="tt"><p id="t16"> 34🌦️<p id="ti16"style="margin-top: 0px;">6:00am</p></p></div>
+            <h1 style="position:absolute;margin-left:10px;margin-top: 10px;font-size: 15px;" id="y1">Tommorow</h1>
+            <div class="tt"><p id="t9"><p id="ti9"style="margin-top: 0px;"></p> </p></div>
+            <div  class="tt"><p id="t10"> <p id="ti10" style="margin-top: 0px;"></p></p></div>
+            <div  class="tt"><p id="t11"> <p id="ti11"style="margin-top: 0px;"></p></p></div>
+            <div  class="tt"><p id="t12"><p id="ti12"style="margin-top: 0px;"></p> </p></div>
+            <div  class="tt"><p id="t13"> <p id="ti13"style="margin-top: 0px;"></p></p></div>
+            <div  class="tt"><p id="t14"> <p id="ti14"style="margin-top: 0px;"></p></p></div>
+            <div  class="tt"><p id="t15"> <p id="ti15"style="margin-top: 0px;"></p></p></div>
+            <div  class="tt"><p id="t16"> <p id="ti16"style="margin-top: 0px;"></p></p></div>
         </div>
         <div id="day3data" class="box" style="background-color: white;color:black;">
-            <h1 style="position:absolute;left:7%;margin-top: 10px;font-size: 15px;" id="y2"> 3 hourly forcast🕟</h1>
-            <div class="tt"><p id="t17">34🌦️<p id="ti17"style="margin-top: 0px;">9:00am</p> </p></div>
-            <div  class="tt"><p id="t18"> 34🌦️<p id="ti18"style="margin-top: 0px;">12:00pm</p></p></div>
-            <div  class="tt"><p id="t19"> 34🌦️<p id="ti19"style="margin-top: 0px;">3:00pm</p></p></div>
-            <div  class="tt"><p id="t20">34🌦️<p id="ti20"style="margin-top: 0px;">6:00pm</p> </p></div>
-            <div  class="tt"><p id="t21"> 34🌦️<p id="ti21"style="margin-top: 0px;">9:00pm</p></p></div>
-            <div  class="tt"><p id="t22"> 34🌦️<p id="ti22"style="margin-top: 0px;">12:00pm</p></p></div>
-            <div  class="tt"><p id="t23"> 34🌦️<p id="ti23"style="margin-top: 0px;">3:00am</p></p></div>
-            <div  class="tt"><p id="t24"> 34🌦️<p id="ti24"style="margin-top: 0px;">6:00am</p></p></div>
+            <h1 style="position:absolute;margin-left:10px;margin-top: 10px;font-size: 15px;" id="y2"> 3 hourly forcast🕟</h1>
+            <div class="tt"><p id="t17"><p id="ti17"style="margin-top: 0px;">9:00am</p> </p></div>
+            <div  class="tt"><p id="t18"> <p id="ti18"style="margin-top: 0px;">12:00pm</p></p></div>
+            <div  class="tt"><p id="t19"> <p id="ti19"style="margin-top: 0px;">3:00pm</p></p></div>
+            <div  class="tt"><p id="t20"><p id="ti20"style="margin-top: 0px;">6:00pm</p> </p></div>
+            <div  class="tt"><p id="t21"> <p id="ti21"style="margin-top: 0px;">9:00pm</p></p></div>
+            <div  class="tt"><p id="t22"> <p id="ti22"style="margin-top: 0px;">12:00pm</p></p></div>
+            <div  class="tt"><p id="t23"> <p id="ti23"style="margin-top: 0px;">3:00am</p></p></div>
+            <div  class="tt"><p id="t24"> <p id="ti24"style="margin-top: 0px;">6:00am</p></p></div>
         </div>
         <div id="day4data" class="box" style="background-color: white;color:black;">
-            <h1 style="position:absolute;left:7%;margin-top: 10px;font-size: 15px;" id="y3">tommorows hourly forcast🕟</h1>
+            <h1 style="position:absolute;margin-left:10px;margin-top: 10px;font-size: 15px;" id="y3">tommorows hourly forcast🕟</h1>
             <div class="tt"><p id="t25">34🌦️<p id="ti25"style="margin-top: 0px;">9:00am</p> </p></div>
             <div  class="tt"><p id="t26"> 34🌦️<p id="ti26"style="margin-top: 0px;">12:00pm</p></p></div>
             <div  class="tt"><p id="t27"> 34🌦️<p id="ti27"style="margin-top: 0px;">3:00pm</p></p></div>
@@ -101,7 +104,7 @@
             <div  class="tt"><p id="t32"> 34🌦️<p id="ti32"style="margin-top: 0px;">6:00am</p></p></div>
         </div>
         <div id="day5data" class="box" style="background-color: white;color:black;">
-            <h1 style="position:absolute;left:7%;margin-top: 10px;font-size: 15px;" id="y4">Today's 3 hourly forcast 🕟</h1>
+            <h1 style="position:absolute;margin-left:10px;margin-top: 10px;font-size: 15px;" id="y4">Today's 3 hourly forcast 🕟</h1>
             <div  class="tt"><p id="t33"> 34🌦️<p id="ti33"style="margin-top: 0px;">9:00am</p></p></div>
             <div  class="tt"><p id="t34"> 34🌦️<p id="ti34"style="margin-top: 0px;">12:00pm</p></p></div>
             <div  class="tt"><p id="t35">34🌦️<p id="ti35"style="margin-top: 0px;">3:00pm</p> </p></div>
@@ -111,8 +114,7 @@
             <div  class="tt"><p id="t39"> 34🌦️<p id="ti39"style="margin-top: 0px;">3:00am</p></p></div>
             <div class="tt"><p id="t40">34🌦️<p id="ti40"style="margin-top: 0px;">6:00am</p> </p></div>
         </div>
-        <canvas id="myChart" class="box" style="max-width: 94%; max-height: 150px;height:16%;background-color: rgb(22, 22, 22);"></canvas>
-        <canvas id="mychart2" class="box" style="max-width: 94%; max-height: 150px;height:16%;background-color:rgba(65, 66, 69, 0.393)"></canvas>
+        <canvas id="mychart2" class="box" style="max-width: 97%; max-height: 150px;height:16%;background-color:rgb(255, 255, 255)"></canvas>
 
         <div id="feelslike" class="box2">
         <h1 >Feels like</h1>
