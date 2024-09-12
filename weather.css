@@ -5,37 +5,32 @@
         height:100%;
         top:0;
         left:0;
-        background-color: rgb(34, 32, 32);
+      background-color: rgb(35, 39, 70);
         z-index: 3;
         display:flex;
         flex-direction: column;
         justify-content:space-around;
+        align-items: center;
         text-align: center;
-        color:white;
-      
+      visibility:hidden;
+       
     }.open{
         visibility:hidden;
-    }#allow{
-        background-color: #464870;
-        width: 140px;
-        color:white;
-        height:40px;
-        font-size: 20px;
+    }.perm h1{
+     color:white;
+     margin:30px;
+     font-weight: 400;
+    }
+    #allow{
+        background-color: #ffffff;
+        width: 270px;
+        color:rgb(0, 0, 0);
+        height:60px;
+        font-size: 30px;
+        font-weight: 600;
         border:0px;
-        border-radius: 20px;
+        border-radius: 10px;
         align-self:center;
-        margin-top: 10px;
-    }#disallow{
-        background-color: #ff6a00;
-        width:100px;
-        color:white;
-        height:40px;
-        font-size: 20px;
-        border:0px;
-        border-radius: 20px;
-       align-self:center;
-       margin-top: 20px;
-       margin-bottom: 80px;
     }
 #main{
     position:fixed;
@@ -46,37 +41,46 @@
    background-position: center;
    background-size: cover;
     user-select: none;
-    border: 0px;
-   background:linear-gradient(120deg,#4cb7e4,#0ab6b6);
+    border:0px;
+    background:linear-gradient(30deg,rgb(65, 162, 155), rgb(91, 219, 213));
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     font-family: Rubik,Arial, Helvetica, sans-serif;
 }#day{
-    color:white;
     background-color: #679aff;
     padding:10px;
 }#temp{
-    font-size: 110px;
+    font-size: 130px;
+    font-weight: 1000;
     margin:0px;
-    color:rgb(0, 0, 0);
     /*tempstyle*/
    /* transform:translate(-35%,-110%) scale(0.8);
     color:white;*/
 }#feels{
-    margin-bottom: 10px;
-    font-size: 15px;
+    margin:0px;
+    background-color: #fdfdfd79;
+    padding:10px;
+    border-radius: 30px;
+    top:34%;
+    margin-left: 20px;margin-right: 20px;
 }#minmax{
-    margin:0px
+    margin:0px;
+    background-color: #fdfdfd79;
+    padding:10px;
+    border-radius: 30px;
+    top:34%;
 }#location{
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 20px;
     font-weight: 500;
+    margin-bottom: 60px;
     /*location style*/
-    color:rgb(0, 0, 0);
 }#description{
-    margin-top: 60px;
+    margin-top: 40px;
     margin-bottom: 0px;
     font-weight:700;
-    color:rgb(0, 0, 0);
     /*descstyle*/
   /*  transform:translate(0%,-80%) scale(1.5);
     color:white;*/
@@ -96,7 +100,7 @@
     left:83%;
     width:45px;
     height:45px;
-    top:270px;
+    top:297px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 30px;
     color:white;
@@ -111,37 +115,38 @@
 }
 #cloud1{
     background-color:white;
-    width:70px;
+    width:80px;
     height:30px;
     border-radius: 30px;
     position:absolute;
-    right:70px;
-    top:16%;
+    right:50px;
+    top:9%;
     z-index: -1;
-   
+    color:white;
+    font-family: impact;
 }#show{
     background-color: bisque;
-    width:40px;
-    height:40px;
-    border-radius: 30px;
+    width:60px;
+    height:60px;
+    border-radius: 60px;
     position:absolute;
-    right:75px;
-    top:13%;
+    right:65px;
+    top:5%;
     z-index: -2;
 
 }
 
-
 #icon{
    font-size: 25px;
 }.swipebox{
-   background-color: rgb(203, 232, 243);
+   background-color: rgb(0, 0, 0);
    width:100%;
    font-family: Rubik,Arial, Helvetica, sans-serif;
    height:100%;
    position: fixed;
    left:0;
    top:0;
+   color:white;
    z-index: 3;
    text-align: center;
    transform:translate(-100%,0%);
@@ -149,7 +154,6 @@
    display:flex;
    align-items: center;
    flex-direction: column;
-   justify-content: space-around;
 
 }.openswipebox{
     transform:translate(0%,0%);
@@ -158,60 +162,72 @@
     position:absolute;
     top:10%;
     font-family: Rubik,Arial, Helvetica, sans-serif;
-  width:80%;
-  height:40px;
+  width:85%;
+  height:60px;
   border-radius: 10px;
   border: 0px;
   text-align: center;
   margin-bottom: 0px;
+  font-size: 20px;
     
-}.swipebox button{
-    position:absolute;
-    width:50px;
-    height:40px;
+}#search{
+   position:absolute;
    top:10%;
-    right:10%;
+   right:7%;
+    width:60px;
+    height:62px;
     border:0px;
-    background-color: #000000;
-    font-size: 20px;
+    background-color: #1bc2cb;
+    font-size: 30px;
     border-radius: 0px 10px 10px 0px;
+}#add{
+    width:50px;
+    height:50px;
+    font-size: 20px;
+    color:white;
+    background-color: #ffffff6f;
+    border-radius: 30px;
+   position:absolute;
+   top:90%;
+   left:80%
 }
 #cityinfo{
-    position:absolute;
-    background-color: #ffffff;
+    background-color: #4844558f;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     border-radius: 20px;
-    width:90%;
-    height:60px;
-    font-size: 15px;
-   top:25%;
+    width:85%;
+    height:80px;
+    color:white;
+    font-size: 20px;
+    margin:0px;
 }#getlocation{
+    position:absolute;
+    top:63%;
     width:100px;
     height:40px;
-    position:absolute;
     border: 0px;
-   top:60%;
-    right:10%;
-    background-color: #000000;
+    background-color: #1bc2cb;
     font-size: 15px;
     border-radius: 30px;
     color:white;
 
 }#locationinfo{
-    position:absolute;
-    background-color: #ffffff;
+    background-color: #4844558f;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     border-radius: 20px;
-    width:90%;
-    height:60px;
-    font-size: 15px;
-    top:40%;
+    width:85%;
+    height:80px;
+    font-size: 20px;
+    color:white;
+    margin:0px;
 }#scrollbox{
     position: absolute;
     width:100%;
-    height:260%;
+    height:270%;
     left:0;
     scrollbar-width: none;
     top:12%;
@@ -223,33 +239,35 @@
     gap:10px;
 }
 .box{
-    width:95%;
+    width:97%;
     height:6%;
-    background-color: #ffffff;
+    background-color: #46456356;
     top:8%;
     color:rgb(0, 0, 0);
     overflow-x: scroll;
     display:flex;
-    border-radius: 20px;
     font-family: Rubik,Arial, Helvetica, sans-serif;
     justify-content: space-between;
     scrollbar-width:none;
     user-select: none;
+    border-radius: 20px;
 }
 .box2{
-    width:95%;
+    width:97%;
     height:3.5%;
-    background-color: #212020;
+    background-color:black;
     top:8%;
     color:rgb(255, 255, 255);
     display:flex;
-    border-radius: 10px;
     font-family: Rubik,Arial, Helvetica, sans-serif;
     font-size: 10px;
     justify-content: space-between;
     align-items: center;
     scrollbar-width:none;
     user-select: none;
+    border-radius: 20px;
+
+
 
 }.box2 p{
     font-size: 40px;
@@ -258,6 +276,7 @@
     background-color: #1bc2cb;
     padding:10px;
     border-radius: 10px;
+    color:white;
 }.box2 h1{
     margin-left:20px;
     font-weight: 300;
@@ -265,13 +284,16 @@
 .tt{
     width:100px;
     height:40px;
-   margin-left: 34px;
    font-size: 13px;
+   font-family:Arial, Helvetica, sans-serif;
    align-self: center;
    display:flex;
    flex-direction: column;
    text-align: center;
+   margin-left: 10px;
+   margin-right: 10px;
    margin-bottom: 20px;
+   
 }#table1{
     position:absolute;
 }.r1{
@@ -299,25 +321,28 @@
   transform:translate(0%,10%)rotate(20deg);
 }
 to{transform:translate(-3000%,600%) rotate(20deg)};
+}#todaydata{
+    height:6%;
+}#myChart{
+    max-width: 97%;
+    height:10%;
 }#descdata{
     display:flex;
     flex-direction: column;
     align-items: center;
     height:4%;
-    overflow: hidden;
-    background: #ffffff;
-    margin-top: 255px;
+    margin-top: 280px;
 }
 #sun{
     position:absolute;
     width:95%;
    height:4%;
-    top:95.4%;
-    background-color:#ffffff;
+    top:95.5%;
+    background-color:#28272c00;
     display:flex;
     justify-content: space-around;
     align-items: center;
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
 }
 #sun p{
     color:white;
