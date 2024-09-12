@@ -1,16 +1,11 @@
 document.getElementById("allow").addEventListener("click",()=>{
     document.documentElement.requestFullscreen();
 }); 
-document.getElementById("disallow").addEventListener("click",()=>{
-    document.documentElement.requestFullscreen();
-});
 function allow(){
     document.getElementById("perm").classList.add("open");
     showlocationdata();
 }
-function disallow(){
-    document.getElementById("perm").classList.add("open");
-}
+
 function openswipebox(){
 document.getElementById("swipebox").classList.add("openswipebox");
 }
@@ -45,11 +40,13 @@ document.getElementById("name").innerHTML=city;}
 
 
 }
+
 function showcitydata(){
 if(document.getElementById("name").innerHTML!=""){
    const city=document.getElementById("name").innerHTML;
    getweatherbycity(city);}
 }
+
 function showlocationdata(){
 if(document.getElementById("latitude").innerHTML!="none"){
     const lat=document.getElementById("latitude").innerHTML;
@@ -76,14 +73,14 @@ document.getElementById("r5").style.visibility="hidden";
 function check(rt,st,d){
     var a=0;
    /*write your code here*/
-   if(rt<st){
-if(d>st || d<rt){
+   if(rt<=st){
+if(d>=st || d<=rt){
     a=0;
 }else{
     a=1
 }}
 else{
-    if(d>st && d<rt){
+    if(d>=st && d<=rt){
         a=0;
     }
     else{
@@ -95,12 +92,13 @@ else{
 }
 /*scroll animation*/
 var nightsky="linear-gradient(130deg,#4d5056,#191b1c)";
-var cloudysky="linear-gradient(120deg,#4cb7e4,#0ab6b6)";
+var cloudysky="linear-gradient(30deg,rgb(65, 162, 155), rgb(91, 219, 213))";
 var rainsky="linear-gradient(130deg,#9cb4c5,#2e3132)";
-var daysky="linear-gradient(130deg,#b8f3ff,#00e5ff)";
+var daysky="linear-gradient(240deg,rgb(120, 192, 255),rgb(147, 224, 255))";
 var color="";
 var boxcolor="";
 var textcolor="";
+var graphcolor="";
 /*modyfying color*/
 function daynightanimations(sunrise,sunset,descr){
     const rise= new Date(sunrise* 1000);
@@ -116,43 +114,55 @@ function daynightanimations(sunrise,sunset,descr){
     console.log(res);
     if(res==0){
         textcolor="white";
+        graphcolor="white";
         color=nightsky;
         document.getElementById("cloud1").style.backgroundColor="grey";
         if(rainatm.indexOf(descr)>-1){
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="visible";
-            raining();
-            boxcolor="black";
+            document.getElementById("cloud1").innerHTML="/ / / /";
 
+            raining();
+            boxcolor="#222427";
         }
         else if(normalday.indexOf(descr)>-1){
+            document.getElementById("cloud1").innerHTML="";
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="hidden";
             norain();
-        boxcolor="black";
+       boxcolor="#222427";
+      
 
         }
         else if(nosun.indexOf(descr)>-1){
+
+            document.getElementById("cloud1").innerHTML="";
+
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="visible";
             norain();
-        boxcolor="black";
+        boxcolor="#222427";
 
         }
         else{
+
+            document.getElementById("cloud1").innerHTML="";
             document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").style.visibility="visible";
             norain();
-        boxcolor="black";
+        boxcolor="#222427";
 
         }
     }
     else{
+        graphcolor="#A2ABAC";
         document.getElementById("cloud1").style.backgroundColor="white";
     if(rainatm.indexOf(descr)>-1){
         color=rainsky;
         document.getElementById("show").style.backgroundColor="white";
         document.getElementById("cloud1").style.visibility="visible";
+        document.getElementById("cloud1").innerHTML="/ / / /";
+      
         raining();
         boxcolor="black";
         textcolor="white";
@@ -161,8 +171,10 @@ function daynightanimations(sunrise,sunset,descr){
         color=daysky;
         document.getElementById("show").style.backgroundColor="Yellow";
         document.getElementById("cloud1").style.visibility="hidden";
+        document.getElementById("cloud1").innerHTML="";
+      
         norain();
-        boxcolor="white";
+        boxcolor= "white";
         textcolor="black";
 
     }
@@ -170,9 +182,11 @@ function daynightanimations(sunrise,sunset,descr){
         color=cloudysky;
         document.getElementById("show").style.backgroundColor="bisque";
         document.getElementById("cloud1").style.visibility="visible";
+        document.getElementById("cloud1").innerHTML="";
+
         norain();
-        boxcolor="#2C2C2D";
-        textcolor="white";
+        boxcolor="white";
+        textcolor="black";
 
 
     }
@@ -180,6 +194,8 @@ function daynightanimations(sunrise,sunset,descr){
         document.getElementById("show").style.backgroundColor="white";
         color="linear-gradient(130deg,#cfdef2,#b6bac3)";
         document.getElementById("cloud1").style.visibility="visible";
+        document.getElementById("cloud1").innerHTML="";
+
         norain();
         boxcolor="white";
         textcolor="black";
@@ -203,7 +219,6 @@ document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="110%";
 document.getElementById("main").style.zIndex="0";
 document.getElementById("temp").style.transform="translate(0%,0%) scale(1)";
-document.getElementById("temp").style.color=textcolor;
 document.getElementById("description").style.transform="translate(0%,0%) scale(1)"
 document.getElementById("cloud1").style.transform="translate(0%,0%)";
 document.getElementById("show").style.transform="translate(0%,0%)";
@@ -211,32 +226,29 @@ document.getElementById("feels").style.visibility="visible"
 document.getElementById("minmax").style.visibility="visible";
 document.getElementById("svg").style.visibility="visible";
 document.getElementById("main").style.background=color;
-document.getElementById("description").style.color=textcolor;
+document.getElementById("temp").style.color=textcolor;
 document.getElementById("location").style.color=textcolor;
-
-
+document.getElementById("description").style.color=textcolor;
 }
 
 else{
     document.getElementById("svg").style.visibility="hidden";
-document.getElementById("descdata").style.color="white";
+document.getElementById("descdata").style.color=textcolor;
+document.getElementById("descdata").style.backgroundColor=boxcolor;
 document.getElementById("scrollbox").style.background="black";
-document.getElementById("main").style.transitionDuration="0s";
-document.getElementById("main").style.height="20%";
+document.getElementById("main").style.height="25%";
 document.getElementById("main").style.zIndex="2";
 document.getElementById("main").style.background="linear-gradient(120deg,black,black)";
-document.getElementById("descdata").style.background="linear-gradient(120deg,rgb(0, 200, 255),rgb(153, 0, 255))";
-document.getElementById("temp").style.transform="translate(-35%,-80%) scale(0.5)";
-document.getElementById("temp").style.color="white";
+document.getElementById("temp").style.transform="translate(-45%,-80%) scale(0.5)";
 document.getElementById("description").style.transform="translate(0%,-80%) scale(1.5)";
-document.getElementById("description").style.color="white";
-document.getElementById("location").style.color="white";
-document.getElementById("cloud1").style.transform="translate(30%,140%)";
-document.getElementById("show").style.transform="translate(40%,70%)";
+document.getElementById("cloud1").style.transform="translate(30%,180%)";
+document.getElementById("show").style.transform="translate(40%,40%)";
 document.getElementById("feels").style.visibility="hidden"
 document.getElementById("minmax").style.visibility="hidden";
 document.getElementById("hh").style.visibility="hidden";
-
+document.getElementById("temp").style.color="white";
+document.getElementById("location").style.color="white";
+document.getElementById("description").style.color="white";
 
 }
 });
@@ -333,13 +345,16 @@ document.getElementById("sunset").innerHTML=convert(data2.sys.sunset);
 daynightanimations(data2.sys.sunrise,data2.sys.sunset,data2.weather[0].description);
 const description=data2.weather[0].description;
 desc(description);
-fg="Humidity is "+data2.main.humidity+"% with "+data2.weather[0].description;
+fg=" ৹ Humidity is "+data2.main.humidity+"% with "+data2.weather[0].description;
 document.getElementById("desc2").innerHTML=fg;
 document.getElementById("main").style.background=color;
 document.getElementById("description").style.color=textcolor;
 document.getElementById("location").style.color=textcolor;
 document.getElementById("temp").style.color=textcolor;
-for(i=0;i<6;i++){
+document.getElementById("feels").style.color=textcolor;
+document.getElementById("minmax").style.color=textcolor;
+
+for(i=0;i<8;i++){
     document.getElementsByClassName("box")[i].style.backgroundColor=boxcolor;
     document.getElementsByClassName("box")[i].style.color=textcolor;
 }
@@ -417,7 +432,7 @@ function desc(description){
 const quote=[" it's a nice weather outside.","Clouds are beautiful outside","Don't forget your umbrella","Winds are speedy today","Look plants can dance too.","Weather is getting watery.","Avoid going out it's lightning.","Nice day for a snowman.","Drive safe low visibility","It could rain just wait","Nice time for a tea","Outside is beautiful in rain.","Heavy rain avoid going out today","It may be foggy outside","Raining slowly carry an umbrella."];
 const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze","light intensity shower rain"];
 const position=desc.indexOf(description);
-document.getElementById("desc").innerHTML=quote[position];
+document.getElementById("desc").innerHTML="⁂ "+quote[position];
 };
 
 function readout(message){
@@ -443,12 +458,43 @@ recognition.onend=function(){
 
 recognition.onresult=(event)=>{
     const transcript=String(event.results[0][0].transcript).toLowerCase();
-    const keywords=["what is the weather?","how is my day today?","how's my day tomorrow?","how is my day today?","how is my day tomorrow?","what is the temperature today?","will it rain today?","will it rain tomorrow?","should i drive today?","should i drive to work?","any recommendations for today?"];
-    const functions=[saytemp(),sayweathertoday(),sayweathertommorow(),sayweathertoday(),sayweathertommorow(),saytemp(),willraintoday(),willraintommorow(),drive(),reccomendtoday()];
-    var result=keywords.indexOf(transcript);
-    if(result>-1){
-        functions[result];
+    if(transcript.includes("temperature") && transcript.includes("today")){
+        sayweathertoday();
     }
+    else if(transcript.includes("temperature") || transcript.includes("weather")){
+        saytemp();
+    }
+    else if(transcript.includes("temperature") && transcript.includes("tommorow")){
+       sayweathertommorow()
+    }
+    else if(transcript.includes("weather") && transcript.includes("tommorow")){
+        sayweathertommorow()
+     }
+     else if(transcript.includes("rain") && transcript.includes("today")){
+        willraintoday();
+     }
+     else if(transcript.includes("rain") && transcript.includes("tommorow")){
+        willraintommorow()
+     }
+     else if(transcript.includes("drive") && transcript.includes("today")){
+        drive();
+     }
+     else if(transcript.includes("safe") && transcript.includes("drive")){
+        drive();
+     }
+     else if(transcript.includes("safe") && transcript.includes("outside")){
+       reccomendtoday();
+     }
+     else if(transcript.includes("reccomendations") && transcript.includes("today")){
+        reccomendtoday();
+     }
+     else if(transcript.includes("expect") && transcript.includes("today")){
+        reccomendtoday();
+     }
+     else {
+        readout("Sorry   I don't know about it")
+     }
+
 }
 function closeassistant(){
     recognition.stop();
@@ -456,14 +502,15 @@ function closeassistant(){
 
 /*functions for response to audio*/
 function saytemp(){
-   var say="hi , Today in"+loc+"temperature is"+maintemp+"with"+"humidity of" +hum+"with"+descrp;
+    var say="hi , Today in"+loc+"temperature is"+maintemp+"with"+"humidity of" +hum+"with"+descrp;
+     readout(say);
+ }
+ function sayweathertoday(){
+   var say="hi, today in"+loc+"temperature with average of"+todavg+"with"+descrp;
+   console.log(todavg);
     readout(say);
-}
-function sayweathertoday(){
-  var say="hi, today in"+loc+"temperature with average of"+todavg+"with"+descrp;
-  console.log(todavg);
-   readout(say);
-}
+ }
+
 function sayweathertommorow(){
     var say="Hello ,tommorow in "+loc+"temperature with average of"+tomavg+"with"+descrp;
    readout(say);
@@ -553,22 +600,30 @@ new Chart(chart, {
     data: {
       labels: xValues,
       datasets: [{
-        fill: false,
-        lineTension: 0.6,
-        backgroundColor: "white",
-        borderColor: "white",
-        borderWidth:3,
+        fill: true,
+        lineTension: 0.3,
+        backgroundColor: graphcolor,
+        borderColor:"white",
+        borderWidth:4,
         data: yValues,
        
       }]
     },
     options: {
-      legend: {display: false},
-      scales: {
-        yAxes: [{ticks: {min: 0, max:60}}],
+      legend:{display:false},
+      title:{display:true,
+        text:"Temperature variations."
+      },
+      scales:{
+        yAxes: [
+            { display:false,ticks: {min: 0, max:60}}],
+            xAxes: [
+                { display:false}]}
       }
-    }
-  }
+    })
+  };
 
-)};
-
+function addcity(){
+    document.getElementById("city").value="";
+    document.getElementById("name").innerHTML="";
+}
