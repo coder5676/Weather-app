@@ -200,7 +200,7 @@
     width:85%;
     height:80px;
     color:white;
-    font-size: 20px;
+    font-size: 15px;
     margin:0px;
 }#getlocation{
     position:absolute;
@@ -218,7 +218,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 15px;
     width:85%;
     height:80px;
     font-size: 20px;
