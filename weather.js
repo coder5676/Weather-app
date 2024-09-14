@@ -116,19 +116,19 @@ function daynightanimations(sunrise,sunset,descr){
         textcolor="white";
         graphcolor="white";
         color=nightsky;
-        document.getElementById("cloud1").style.backgroundColor="grey";
+document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.515)";
+
+      
         if(rainatm.indexOf(descr)>-1){
-            document.getElementById("show").style.backgroundColor="white";
-            document.getElementById("cloud1").style.visibility="visible";
-            document.getElementById("cloud1").innerHTML="/ / / /";
+            document.getElementById("show").innerHTML="";
+            document.getElementById("cloud1").innerHTML="🌧️";
 
             raining();
             boxcolor="#222427";
         }
         else if(normalday.indexOf(descr)>-1){
+            document.getElementById("show").innerHTML="🌙";
             document.getElementById("cloud1").innerHTML="";
-            document.getElementById("show").style.backgroundColor="white";
-            document.getElementById("cloud1").style.visibility="hidden";
             norain();
        boxcolor="#222427";
       
@@ -136,19 +136,16 @@ function daynightanimations(sunrise,sunset,descr){
         }
         else if(nosun.indexOf(descr)>-1){
 
-            document.getElementById("cloud1").innerHTML="";
-
-            document.getElementById("show").style.backgroundColor="white";
-            document.getElementById("cloud1").style.visibility="visible";
+            document.getElementById("show").innerHTML="🌙"
+            document.getElementById("cloud1").innerHTML="☁️";
             norain();
         boxcolor="#222427";
 
         }
         else{
 
-            document.getElementById("cloud1").innerHTML="";
-            document.getElementById("show").style.backgroundColor="white";
-            document.getElementById("cloud1").style.visibility="visible";
+            document.getElementById("cloud1").innerHTML="☁️";
+            document.getElementById("show").innerHTML="🌙";
             norain();
         boxcolor="#222427";
 
@@ -156,12 +153,11 @@ function daynightanimations(sunrise,sunset,descr){
     }
     else{
         graphcolor="#A2ABAC";
-        document.getElementById("cloud1").style.backgroundColor="white";
+        document.getElementById("light2").style.backgroundColor=" rgba(237, 255, 163, 0.519)";
     if(rainatm.indexOf(descr)>-1){
         color=rainsky;
-        document.getElementById("show").style.backgroundColor="white";
-        document.getElementById("cloud1").style.visibility="visible";
-        document.getElementById("cloud1").innerHTML="/ / / /";
+        document.getElementById("show").innerHTML="";
+        document.getElementById("cloud1").innerHTML="🌧️";
       
         raining();
         boxcolor="black";
@@ -169,8 +165,7 @@ function daynightanimations(sunrise,sunset,descr){
     }
     else if(normalday.indexOf(descr)>-1){
         color=daysky;
-        document.getElementById("show").style.backgroundColor="Yellow";
-        document.getElementById("cloud1").style.visibility="hidden";
+        document.getElementById("show").innerHTML="☀️";
         document.getElementById("cloud1").innerHTML="";
       
         norain();
@@ -180,9 +175,8 @@ function daynightanimations(sunrise,sunset,descr){
     }
     else if(nosun.indexOf(descr)>-1){
         color=cloudysky;
-        document.getElementById("show").style.backgroundColor="bisque";
-        document.getElementById("cloud1").style.visibility="visible";
-        document.getElementById("cloud1").innerHTML="";
+        document.getElementById("show").innerHTML="☀️";
+            document.getElementById("cloud1").innerHTML="☁️";
 
         norain();
         boxcolor="white";
@@ -191,10 +185,10 @@ function daynightanimations(sunrise,sunset,descr){
 
     }
     else{
-        document.getElementById("show").style.backgroundColor="white";
+        
         color="linear-gradient(130deg,#cfdef2,#b6bac3)";
-        document.getElementById("cloud1").style.visibility="visible";
-        document.getElementById("cloud1").innerHTML="";
+        document.getElementById("show").innerHTML="☀️";
+        document.getElementById("cloud1").innerHTML="☁️";
 
         norain();
         boxcolor="white";
@@ -211,6 +205,8 @@ function daynightanimations(sunrise,sunset,descr){
 window.addEventListener('scroll',()=>{
 const y=window.scrollY;
 if(y==0){
+document.getElementById("light1").style.visibility="visible";
+document.getElementById("light2").style.visibility="visible";
 document.getElementById("scrollbox").style.backgroundColor="";
 document.getElementById("descdata").style.background=boxcolor;
 document.getElementById("descdata").style.color=textcolor;
@@ -232,6 +228,8 @@ document.getElementById("description").style.color=textcolor;
 }
 
 else{
+    document.getElementById("light1").style.visibility="hidden";
+document.getElementById("light2").style.visibility="hidden";
     document.getElementById("svg").style.visibility="hidden";
 document.getElementById("descdata").style.color=textcolor;
 document.getElementById("descdata").style.backgroundColor=boxcolor;
@@ -239,10 +237,10 @@ document.getElementById("scrollbox").style.background="black";
 document.getElementById("main").style.height="25%";
 document.getElementById("main").style.zIndex="2";
 document.getElementById("main").style.background="linear-gradient(120deg,black,black)";
-document.getElementById("temp").style.transform="translate(-45%,-80%) scale(0.5)";
+document.getElementById("temp").style.transform="translate(-65%,-80%) scale(0.5)";
 document.getElementById("description").style.transform="translate(0%,-80%) scale(1.5)";
-document.getElementById("cloud1").style.transform="translate(30%,180%)";
-document.getElementById("show").style.transform="translate(40%,40%)";
+document.getElementById("cloud1").style.transform="translate(10%,0%)";
+document.getElementById("show").style.transform="translate(10%,-20%)";
 document.getElementById("feels").style.visibility="hidden"
 document.getElementById("minmax").style.visibility="hidden";
 document.getElementById("hh").style.visibility="hidden";
@@ -373,7 +371,7 @@ const timearr=["ti1","ti2","ti3","ti4","ti5","ti6","ti7","ti8","ti9","ti10","ti1
 
 for (i=0;i<40;i++){
 let des=data.list[i].weather[0].description;
-document.getElementById(temparr[i]).innerHTML=Math.round(data.list[i].main.temp )+"°"+" "+ weathericon(des);
+document.getElementById(temparr[i]).innerHTML=Math.round(data.list[i].main.temp )+"°"+"  "+ weathericon(des);
 document.getElementById(timearr[i]).innerHTML=String(data.list[i].dt_txt).slice(11,16);
 }
 var d=getday();
