@@ -121,13 +121,16 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
       
         if(rainatm.indexOf(descr)>-1){
             document.getElementById("show").innerHTML="";
+        document.getElementById("show").style.backgroundColor="transparent";
+         
             document.getElementById("cloud1").innerHTML="🌧️";
 
             raining();
             boxcolor="#222427";
         }
         else if(normalday.indexOf(descr)>-1){
-            document.getElementById("show").innerHTML="🌙";
+            document.getElementById("show").innerHTML="";
+            document.getElementById("show").style.backgroundColor="white";
             document.getElementById("cloud1").innerHTML="";
             norain();
        boxcolor="#222427";
@@ -135,7 +138,8 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
 
         }
         else if(nosun.indexOf(descr)>-1){
-
+        document.getElementById("show").style.backgroundColor="transparent";
+         
             document.getElementById("show").innerHTML="🌙"
             document.getElementById("cloud1").innerHTML="☁️";
             norain();
@@ -143,7 +147,8 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
 
         }
         else{
-
+        document.getElementById("show").style.backgroundColor="transparent";
+          
             document.getElementById("cloud1").innerHTML="☁️";
             document.getElementById("show").innerHTML="🌙";
             norain();
@@ -157,6 +162,8 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
     if(rainatm.indexOf(descr)>-1){
         color=rainsky;
         document.getElementById("show").innerHTML="";
+        document.getElementById("show").style.backgroundColor="transparent";
+
         document.getElementById("cloud1").innerHTML="🌧️";
       
         raining();
@@ -165,7 +172,10 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
     }
     else if(normalday.indexOf(descr)>-1){
         color=daysky;
-        document.getElementById("show").innerHTML="☀️";
+        document.getElementById("show").innerHTML="";
+        document.getElementById("show").style.backgroundColor="#dbff3a";
+       
+
         document.getElementById("cloud1").innerHTML="";
       
         norain();
@@ -175,7 +185,8 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
     }
     else if(nosun.indexOf(descr)>-1){
         color=cloudysky;
-        document.getElementById("show").innerHTML="☀️";
+        document.getElementById("show").innerHTML="";
+        document.getElementById("show").style.backgroundColor="#dbff3a";
             document.getElementById("cloud1").innerHTML="☁️";
 
         norain();
@@ -187,7 +198,8 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
     else{
         
         color="linear-gradient(130deg,#cfdef2,#b6bac3)";
-        document.getElementById("show").innerHTML="☀️";
+        document.getElementById("show").innerHTML="";
+        document.getElementById("show").style.backgroundColor="#dbff3a";
         document.getElementById("cloud1").innerHTML="☁️";
 
         norain();
@@ -207,6 +219,8 @@ const y=window.scrollY;
 if(y==0){
 document.getElementById("light1").style.visibility="visible";
 document.getElementById("light2").style.visibility="visible";
+document.getElementById("light3").style.visibility="visible";
+
 document.getElementById("scrollbox").style.backgroundColor="";
 document.getElementById("descdata").style.background=boxcolor;
 document.getElementById("descdata").style.color=textcolor;
@@ -230,6 +244,8 @@ document.getElementById("description").style.color=textcolor;
 else{
     document.getElementById("light1").style.visibility="hidden";
 document.getElementById("light2").style.visibility="hidden";
+document.getElementById("light3").style.visibility="hidden";
+
     document.getElementById("svg").style.visibility="hidden";
 document.getElementById("descdata").style.color=textcolor;
 document.getElementById("descdata").style.backgroundColor=boxcolor;
