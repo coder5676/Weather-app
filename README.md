@@ -51,16 +51,17 @@ weather-app/
 ├── style.css
 └── script.js
 
-index.html: The main HTML file.
-style.css: The CSS file for styling the app.
-script.js: The JavaScript file for fetching and displaying weather data.
-API Reference
-OpenWeather API
-Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+1.index.html: The main HTML file.
+2.weather.css: The CSS file for styling the app.
+3.weather.js: The JavaScript file for fetching and displaying weather data.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+4.API Reference:
+  OpenWeather API
+5.Contributing
+  Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-Acknowledgements
-OpenWeather for providing the weather data API.
+6.License
+  This project is licensed under the MIT License - see the LICENSE file for details.
+
+7.Acknowledgements
+  OpenWeather for providing the weather data API.
