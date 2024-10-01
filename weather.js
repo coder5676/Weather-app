@@ -4,6 +4,7 @@ document.getElementById("allow").addEventListener("click",()=>{
 function allow(){
     document.getElementById("perm").classList.add("open");
     showlocationdata();
+    document.getElementById("loader").style.display="block";
 }
 
 function openswipebox(){
@@ -12,10 +13,15 @@ document.getElementById("swipebox").classList.add("openswipebox");
 function closeswipebox(){
 document.getElementById("swipebox").classList.remove("openswipebox");
 showcitydata();
+document.getElementById("loader").style.display="block";
+
 }
 function closeswipebox2(){
 document.getElementById("swipebox").classList.remove("openswipebox");
 showlocationdata();
+document.getElementById("loader").style.display="block";
+
+
 }
 
 /*getting weather by location*/
@@ -112,45 +118,41 @@ function daynightanimations(sunrise,sunset,descr){
     const nosun=["scattered clouds","broken clouds","overcast clouds"];
     const res=check(rt,st,d);
     console.log(res);
+    document.getElementById("show").classList.remove("sunanimation");
     if(res==0){
         textcolor="white";
         graphcolor="white";
         color=nightsky;
-document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.515)";
+
 
       
         if(rainatm.indexOf(descr)>-1){
-            document.getElementById("show").innerHTML="";
-        document.getElementById("show").style.backgroundColor="transparent";
+        document.getElementById("show").style.backgroundColor="white";
+        document.getElementById("show").style.boxShadow="0px 0px 500px 30px white";
+
          
-            document.getElementById("cloud1").innerHTML="🌧️";
 
             raining();
             boxcolor="#222427";
         }
         else if(normalday.indexOf(descr)>-1){
-            document.getElementById("show").innerHTML="";
             document.getElementById("show").style.backgroundColor="white";
-            document.getElementById("cloud1").innerHTML="";
+            document.getElementById("show").style.boxShadow="0px 0px 500px 30px white";
             norain();
        boxcolor="#222427";
       
 
         }
         else if(nosun.indexOf(descr)>-1){
-        document.getElementById("show").style.backgroundColor="transparent";
-         
-            document.getElementById("show").innerHTML="🌙"
-            document.getElementById("cloud1").innerHTML="☁️";
+            document.getElementById("show").style.backgroundColor="white";
+            document.getElementById("show").style.boxShadow="0px 0px 500px 30px white";
             norain();
         boxcolor="#222427";
 
         }
         else{
-        document.getElementById("show").style.backgroundColor="transparent";
-          
-            document.getElementById("cloud1").innerHTML="☁️";
-            document.getElementById("show").innerHTML="🌙";
+            document.getElementById("show").style.backgroundColor="white";
+            document.getElementById("show").style.boxShadow="0px 0px 500px 30px white";
             norain();
         boxcolor="#222427";
 
@@ -158,26 +160,22 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
     }
     else{
         graphcolor="#A2ABAC";
-        document.getElementById("light2").style.backgroundColor=" rgba(237, 255, 163, 0.519)";
+    document.getElementById("show").classList.add("sunanimation");
+
+        
     if(rainatm.indexOf(descr)>-1){
         color=rainsky;
-        document.getElementById("show").innerHTML="";
-        document.getElementById("show").style.backgroundColor="transparent";
-
-        document.getElementById("cloud1").innerHTML="🌧️";
+        document.getElementById("show").style.backgroundColor="white";
+        
       
         raining();
         boxcolor="black";
-        textcolor="white";
+        textcolor="black";
     }
     else if(normalday.indexOf(descr)>-1){
         color=daysky;
-        document.getElementById("show").innerHTML="";
-        document.getElementById("show").style.backgroundColor="#dbff3a";
+        document.getElementById("show").style.backgroundColor="#fff07c";
        
-
-        document.getElementById("cloud1").innerHTML="";
-      
         norain();
         boxcolor= "white";
         textcolor="black";
@@ -185,9 +183,8 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
     }
     else if(nosun.indexOf(descr)>-1){
         color=cloudysky;
-        document.getElementById("show").innerHTML="";
-        document.getElementById("show").style.backgroundColor="#dbff3a";
-            document.getElementById("cloud1").innerHTML="☁️";
+        document.getElementById("show").style.backgroundColor="transparent";
+        
 
         norain();
         boxcolor="white";
@@ -198,9 +195,7 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
     else{
         
         color="linear-gradient(130deg,#cfdef2,#b6bac3)";
-        document.getElementById("show").innerHTML="";
-        document.getElementById("show").style.backgroundColor="#dbff3a";
-        document.getElementById("cloud1").innerHTML="☁️";
+        document.getElementById("show").style.backgroundColor="transparent";
 
         norain();
         boxcolor="white";
@@ -217,21 +212,18 @@ document.getElementById("light2").style.backgroundColor="rgba(255, 255, 255, 0.5
 window.addEventListener('scroll',()=>{
 const y=window.scrollY;
 if(y==0){
-document.getElementById("light1").style.visibility="visible";
-document.getElementById("light2").style.visibility="visible";
-document.getElementById("light3").style.visibility="visible";
 
 document.getElementById("scrollbox").style.backgroundColor="";
 document.getElementById("descdata").style.background=boxcolor;
 document.getElementById("descdata").style.color=textcolor;
+document.getElementById("but1").style.color=textcolor;
+
 document.getElementById("scrollbox").style.transitionDuration="0s";
 document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="110%";
 document.getElementById("main").style.zIndex="0";
 document.getElementById("temp").style.transform="translate(0%,0%) scale(1)";
 document.getElementById("description").style.transform="translate(0%,0%) scale(1)"
-document.getElementById("cloud1").style.transform="translate(0%,0%)";
-document.getElementById("show").style.transform="translate(0%,0%)";
 document.getElementById("feels").style.visibility="visible"
 document.getElementById("minmax").style.visibility="visible";
 document.getElementById("svg").style.visibility="visible";
@@ -242,9 +234,8 @@ document.getElementById("description").style.color=textcolor;
 }
 
 else{
-    document.getElementById("light1").style.visibility="hidden";
-document.getElementById("light2").style.visibility="hidden";
-document.getElementById("light3").style.visibility="hidden";
+    
+    document.getElementById("but1").style.color="white";
 
     document.getElementById("svg").style.visibility="hidden";
 document.getElementById("descdata").style.color=textcolor;
@@ -255,8 +246,6 @@ document.getElementById("main").style.zIndex="2";
 document.getElementById("main").style.background="linear-gradient(120deg,black,black)";
 document.getElementById("temp").style.transform="translate(-65%,-80%) scale(0.5)";
 document.getElementById("description").style.transform="translate(0%,-80%) scale(1.5)";
-document.getElementById("cloud1").style.transform="translate(10%,0%)";
-document.getElementById("show").style.transform="translate(10%,-20%)";
 document.getElementById("feels").style.visibility="hidden"
 document.getElementById("minmax").style.visibility="hidden";
 document.getElementById("hh").style.visibility="hidden";
@@ -291,11 +280,14 @@ console.log(data);
 console.log(data2);
 document.getElementById("place").innerHTML=data2.name;
 setdetails(data2);
-setdata(data);}
+setdata(data);
+document.getElementById("loader").style.display="none";
+
+}
 catch(err){
     document.getElementById("temp").innerHTML="🤕";
     document.getElementById("location").innerHTML="Location data is unavailable..";
-   
+   console.log(err);
 
 
 
@@ -317,12 +309,15 @@ console.log(data2);
 document.getElementById("citytemp").innerHTML=data2.main.temp;
 document.getElementById("tempicon1").innerHTML=weathericon(data2.weather[0].description);
 setdetails(data2);
-setdata(data);}
+setdata(data);
+document.getElementById("loader").style.display="none";
+
+}
 catch(err){
     document.getElementById("temp").innerHTML="🤕";
     document.getElementById("location").innerHTML="City not found..";
     document.getElementById("description").innerHTML="Remove end spaces if any and try again...";
-
+console.log(err)
 
 
 }
@@ -346,16 +341,15 @@ document.getElementById("temp").innerHTML=Math.round(data2.main.temp)+"°";
 document.getElementById("location").innerHTML=data2.name +","+data2.sys.country;
 document.getElementById("description").innerHTML=data2.weather[0].main;
 document.getElementById("feels").innerHTML="Feels Like "+Math.round(data2.main.feels_like)+"°";
-document.getElementById("minmax").innerHTML="Min:"+Math.round(data2.main.temp_min)+"°"+"|"+"Max:"+Math.round(data2.main.temp_max)+"°";
+document.getElementById("minmax").innerHTML="Low: "+Math.round(data2.main.temp_min)+"°"+" | "+"High: "+Math.round(data2.main.temp_max)+"°";
 document.getElementById("f").innerHTML= Math.round(data2.main.feels_like)+"°";
 document.getElementById("h").innerHTML=data2.main.humidity;
 document.getElementById("s").innerHTML=data2.wind.speed;
 document.getElementById("a").innerHTML=data2.wind.deg;
 document.getElementById("p").innerHTML=data2.main.pressure;
 document.getElementById("v").innerHTML=data2.visibility;
-document.getElementById("volume").innerHTML=data2.clouds.all;
-document.getElementById("sunrise").innerHTML=convert(data2.sys.sunrise);
-document.getElementById("sunset").innerHTML=convert(data2.sys.sunset);
+document.getElementById("sunrise").innerHTML="☀️: "+convert(data2.sys.sunrise);
+document.getElementById("sunset").innerHTML="🌙: "+convert(data2.sys.sunset);
 daynightanimations(data2.sys.sunrise,data2.sys.sunset,data2.weather[0].description);
 const description=data2.weather[0].description;
 desc(description);
@@ -367,6 +361,8 @@ document.getElementById("location").style.color=textcolor;
 document.getElementById("temp").style.color=textcolor;
 document.getElementById("feels").style.color=textcolor;
 document.getElementById("minmax").style.color=textcolor;
+document.getElementById("but1").style.color=textcolor;
+
 
 for(i=0;i<8;i++){
     document.getElementsByClassName("box")[i].style.backgroundColor=boxcolor;
@@ -383,6 +379,7 @@ loc=data2.name;
 function setdata(data){
 const week=["Sunday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
 const temparr=["t1","t2","t3","t4","t5","t6","t7","t8","t9","t10","t11","t12","t13","t14","t15","t16","t17","t18","t19","t20","t21","t22","t23","t24","t25","t26","t27","t28","t29","t30","t31","t32","t33","t34","t35","t36","t37","t38","t39","t40"];
+const humarr=["h1","h2","h3","h4","h5","h6","h7","h8"];
 const timearr=["ti1","ti2","ti3","ti4","ti5","ti6","ti7","ti8","ti9","ti10","ti11","ti12","ti13","ti14","ti15","ti16","ti17","ti18","ti19","ti20","ti21","ti22","ti23","ti24","ti25","ti26","ti27","ti28","ti29","ti30","ti31","ti32","ti33","ti34","ti35","ti36","ti37","ti38","ti39","ti40"];
 
 for (i=0;i<40;i++){
@@ -403,6 +400,10 @@ for(j=0;j<8;j++){
     todarr.push(data.list[j].weather[0].main);
     tomarr.push(data.list[j+8].weather[0].main);
     
+}
+for(h=0;h<8;h++){
+document.getElementById(humarr[h]).innerHTML=data.list[h].main.humidity+"%";
+
 }
 
 for(k=0;k<5;k++){
