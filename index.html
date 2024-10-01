@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather app</title>
     <link rel="stylesheet" href="weather.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google Sans Text">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body onload="getlocation()">
+  
     <div id="perm" class="perm"style="font-family:Rubik,Arial, Helvetica, sans-serif;">
-     <h1>Hi, nice to see you..</h1>
+     <h1>Weather</h1>
        <img src="WEATHERICON.webp" style="width:350px;margin-top:-140px;">
-        <button id="allow" type="submit" onclick="allow()">Get started</button>
+        <button id="allow" onclick="allow()">Get started</button>
     </div>
     <div id="main">
-        <h1 id="light1"> <h1 id="light2"></h1>
-            <h1 id="light3"></h1>
-        </h1>
-       
+        <div id="loader"></div>
      <div id="hh" class="hh"><p id="top" class="top"></p></div>
         <svg  id="svg" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;top:22%;z-index:-1;width:100%;max-height:150px; " viewBox="0 -30 1440 320"><path fill="black" fill-opacity="0.2" d="M0,320L40,298.7C80,277,160,235,240,197.3C320,160,400,128,480,101.3C560,75,640,53,720,85.3C800,117,880,203,960,202.7C1040,203,1120,117,1200,112C1280,107,1360,181,1400,218.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,570,80,320,40,320L0,320Z"></path></svg>
        
@@ -28,16 +30,15 @@
         <h1 id="r4" class="r4"></h1>
         <h1 id="r5" class="r5"></h1>
 
-        <button id="but1" type="submit" class="but1" onclick="openswipebox()">!!!</button>
         <div id="main1">
+            <button id="but1" class="but1" onclick="openswipebox()">←</button>
+           <div id="show" class="show"></div>
 
-            <p id="location">fnkren</p>
-            <p id="description">enjce</p>
-            <p id="cloud1">☁️</p>
-            <p id="show">☀️</p>
-            <h1 id="temp"style="margin-left:20px">34</h1>
-           <p id="feels" >feels like</p>
-          <p id="minmax"> min max</p>
+            <p id="location">London,KK</p>
+            <p id="description">Cloudy</p>
+            <h1 id="temp"style="margin-left:20px">20°</h1>
+       <p id="feels" >feels like 30</p>
+          <p id="minmax"> min|max</p>
         </div>
     </div>
          </div>
@@ -53,23 +54,24 @@
 
 </div>
 <div id="scrollbox">
+    
     <div id="descdata" class="box">
-        <h2 id="desc" style="font-size: 17px;margin-top: 20px;">jwekbckjwbekjbckj</h2>
-        <p id="desc2" style="font-size: 14px;">jbkwjbecjbv</p>
+        <h2 id="desc" style="font-size: 20px;margin-top: 0px;margin-bottom: 0px;">Nice day today not bad</h2>
+        <p id="desc2" style="font-size: 16px;">Humidity is 25 with light rain.</p>
+        <div id="sr"><p id="sunrise"></p><p id="sunset"></p></div>
         <button id="ask" type="submit" class="ask" onclick=openassistant()>.</button>
     </div>
     <div id="todaydata" class="box" style="background-color: white;color:black;">
        
         <h1 style="position:absolute;margin-left:10px;margin-top: 10px;font-size: 15px;">Today's 3 hourly forecast Ø</h1>
-        <div class="tt"><p id="t1" style="font-weight: 700;"><p  id="ti1" style="margin-top: 3px;"></p> </p></div>
-        <div  class="tt"><p id="t2" style="font-weight: 700;"> <p id="ti2" style="margin-top: 3px;"></p></p></div>
-        <div  class="tt"><p id="t3" style="font-weight: 700;"> <p id="ti3" style="margin-top: 3px;"></p></p></div>
-        <div  class="tt"><p id="t4" style="font-weight: 700;"><p id="ti4" style="margin-top: 3px;"></p> </p></div>
-        <div  class="tt"><p id="t5" style="font-weight: 700;"> <p id="ti5"style="margin-top: 3px;"></p></p></div>
-        <div  class="tt"><p id="t6" style="font-weight: 700;"> <p id="ti6" style="margin-top: 3px;"></p></p></div>
-        <div  class="tt"><p id="t7" style="font-weight: 700;"> <p id="ti7"style="margin-top: 3px;"></p></p></div>
-        <div  class="tt"><p id="t8" style="font-weight: 700;"><p id="ti8"style="margin-top: 3px;"></p></p></div>
-
+        <div class="tt" id="l1"><p id="t1" style="font-weight: 700;font-size: 17px;"> 20</p><p  id="ti1" style="margin-top: 3px;">20</p><p id="h1" style="margin-top: 5px;">20</p></div>
+        <div  class="tt" id="l1"><p id="t2" style="font-weight: 700;font-size: 17px;"></p> <p id="ti2" style="margin-top: 3px;"></p><p id="h2" style="margin-top: 5px;margin-left: 3px;"></p></div>
+        <div  class="tt" id="l1"><p id="t3" style="font-weight: 700;font-size: 17px;"> </p><p id="ti3" style="margin-top: 3px;"></p><p id="h3"  style="margin-top: 5px;margin-left: 3px;"></p></div>
+        <div  class="tt" id="l1"><p id="t4" style="font-weight: 700;font-size: 17px;"></p><p id="ti4" style="margin-top: 3px;"></p> <p id="h4"  style="margin-top: 5px;margin-left: 3px;"></p></div>
+        <div  class="tt" id="l1"><p id="t5" style="font-weight: 700;font-size: 17px;"></p> <p id="ti5"style="margin-top: 3px;"></p><p id="h5" style="margin-top: 5px;margin-left: 3px;"></p></div>
+        <div  class="tt" id="l1"><p id="t6" style="font-weight: 700;font-size: 17px;"></p> <p id="ti6" style="margin-top: 3px;"></p><p id="h6" style="margin-top: 5px;margin-left: 3px;"></p></div>
+        <div  class="tt" id="l1"><p id="t7" style="font-weight: 700;font-size: 17px;"> </p><p id="ti7"style="margin-top: 3px;"></p><p id="h7" style="margin-top: 5px;margin-left: 3px;"></p></div>
+        <div  class="tt" id="l1"><p id="t8" style="font-weight: 700;font-size: 17px;"></p><p id="ti8"style="margin-top: 3px;"></p><p id="h8" style="margin-top: 5px;margin-left: 3px;"></p></div>
     </div>
     <canvas id="myChart" class="box" style="width: 97%;max-height: 150px;height:16%;background-color: rgb(255, 255, 255);"></canvas>
   
@@ -118,7 +120,7 @@
             <div  class="tt"><p id="t39" style="font-weight: 700;"> 34🌦️<p id="ti39"style="margin-top: 3px;">3:00am</p></p></div>
             <div class="tt"><p id="t40" style="font-weight: 700;">34🌦️<p id="ti40"style="margin-top: 3px;">6:00am</p> </p></div>
         </div>
-        <canvas id="mychart2" class="box" style="max-width: 97%; max-height: 150px;height:16%;background-color:rgb(255, 255, 255)"></canvas>
+        <canvas id="mychart2" class="box" style="width: 92%; max-height: 150px;height:16%;background-color:rgb(255, 255, 255)"></canvas>
          <div id="info">
         <div id="feelslike" class="box2">
         <h1 >Feels like</h1>
@@ -145,15 +147,7 @@
             <h1>Visibility</h1>
             <p id="v">23</p>
         </div>
-        <div id="cloudsall"class="box2">
-            <h1>Clouds</h1>
-            <p id="volume">23</p>
-        </div>
-        <div id="sun"class="box2">
-            <h1>Day/Night</h1>
-            <p id="sunrise">23</p>
-            <p id="sunset">23</p>
-        </div>
+       
 </div>
    
 </div>
