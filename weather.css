@@ -51,12 +51,13 @@
     user-select: none;
     border:0px;
     text-align: center;
-   background:linear-gradient(120deg,rgb(109, 183, 229),rgb(171, 154, 255));
+   background:linear-gradient(120deg,rgb(137, 237, 255),rgb(169, 248, 255));
     display:flex;
     flex-direction: column;
     align-items: center;
     font-family: Rubik,Arial, Helvetica, sans-serif;
     border-radius: 0px 0px 30px 30px;
+    
 }#temp{
     font-size: 130px;
    margin-top: -20px;
@@ -109,18 +110,15 @@
    height:150px;
    top:-20px;
    right:-60px;
-   background-color: #fff07c;
+   background-color: #fffb21;
    border-radius: 200px;
-   box-shadow: 0px 0px 200px 0px #fff07c;
+   box-shadow: 0px 0px 400px 0px #fff07c;
    animation:shine 4s infinite
 
    
-}.sunanimation{
-    aspect-ratio: 1;
-    --g:/11.984% 11.984% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
-    mask: radial-gradient(100% 100%,#000 calc(43.598% - 1px),#0000 43.598%) intersect,radial-gradient(#000 0 0) exclude,99.991% 50.956% var(--g),97.879% 64.408% var(--g),92.216% 76.791% var(--g),83.423% 87.188% var(--g),72.15% 94.826% var(--g),59.235% 99.14% var(--g),45.635% 99.809% var(--g),32.358% 96.784% var(--g),20.39% 90.29% var(--g),10.618% 80.807% var(--g),3.767% 69.039% var(--g),0.345% 55.86% var(--g),0.605% 42.246% var(--g),4.529% 29.207% var(--g),11.825% 17.71% var(--g),21.952% 8.608% var(--g),34.16% 2.575% var(--g),47.542% 0.06% var(--g),61.107% 1.249% var(--g),73.848% 6.054% var(--g),84.82% 14.117% var(--g),93.21% 24.842% var(--g),98.395% 37.433% var(--g);
 }@keyframes shine{
-    50%{padding:9px;rotate:80deg}
+    70%{padding:5px;}
+    30%{padding:0px;}
 }
 #icon{
    font-size: 25px;
@@ -223,19 +221,19 @@
     align-items: center;
     border-radius: 20px 20px 0px 0px ;
     gap:10px;
+
 }
 .box{
     width:92%;
-    height:200px;
-    background-color: #f2f2f2;
+    height:220px;
     top:8%;
-    color:rgb(255, 255, 255);
     overflow-x: scroll;
     display:flex;
     font-family: Rubik,Arial, Helvetica, sans-serif;
     scrollbar-width:none;
     user-select: none;
-    border-radius: 30px;}
+    border-radius: 30px;
+}
 .box h1{
     background-color: #0e0e0e;
     padding:5px;
@@ -254,13 +252,6 @@
    margin-left: 10px;
    margin-right: 10px;
    
-}#l1{
-    margin-top: 50px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 5px 0px rgb(138, 137, 170);
-    padding:5px;height:130px;
-
-
 }#table1{
     position:absolute;
 }.r1{
@@ -291,16 +282,20 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
 }#myChart{
     max-width: 92%;
     height:10%;
+    border-radius: 30px;
 }#mychart2{
     max-width: 92%;
+    height:10%;
+    border-radius: 30px;
+
 }#descdata{
     display:flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
-    height:145px;
     margin-top: 310px;
+    max-height: 140px;
     font-family: google sans text,Arial, Helvetica, sans-serif;
 }#descdata h1{
     font-size: 30px;
@@ -317,20 +312,17 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
     align-items: center;
     justify-content: center;
 }.box2{
-    height:170px;
+    height:160px;
+    width:160px;
+    border-radius:100px;
 margin:5px;
     background-color: #a8d5ff;
-        /* adjust to control the size */
-    
-     
-            width: 170px; /* adjust to control the size */
-            aspect-ratio: 1;
-            --g:/12.97% 12.97% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
-            mask: 99.837% 54.035% var(--g),96.434% 68.545% var(--g),88.904% 81.408% var(--g),77.918% 91.48% var(--g),64.452% 97.866% var(--g),49.701% 99.999% var(--g),34.977% 97.69% var(--g),21.587% 91.143% var(--g),10.723% 80.94% var(--g),3.348% 67.988% var(--g),0.118% 53.438% var(--g),1.321% 38.582% var(--g),6.849% 24.741% var(--g),16.211% 13.145% var(--g),28.576% 4.823% var(--g),42.844% 0.515% var(--g),57.748% 0.604% var(--g),71.963% 5.082% var(--g),84.227% 13.552% var(--g),93.45% 25.26% var(--g),98.812% 39.166% var(--g),radial-gradient(100% 100%,#000 43.028%,#0000 calc(43.028% + 1px));
       display: flex;
       flex-direction: column;
+      justify-content: center;
       text-align: center;
       font-family: Google sans text,Arial, Helvetica, sans-serif;
+      border: 4px solid white;
    
 }.box2 h1{
     font-size: 20px;
@@ -359,9 +351,7 @@ margin:5px;
     color:rgb(29, 137, 2);
     background-color:rgb(100, 237, 136);
 }
-#todaydata{
-    height:230px;
-}#sr{
+#sr{
     width:250px;
     height:35px;
     display:flex;
