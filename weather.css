@@ -13,7 +13,7 @@
         align-items: center;
         text-align: center;
         font-family:google sans text ,Arial, Helvetica, sans-serif;
-       
+  
     }.open{
         visibility:hidden;
     }.perm h1{
@@ -281,11 +281,9 @@
 to{transform:translate(-3000%,600%) rotate(20deg)};
 }#myChart{
     max-width: 92%;
-    height:10%;
     border-radius: 30px;
 }#mychart2{
     max-width: 92%;
-    height:10%;
     border-radius: 30px;
 
 }#descdata{
@@ -300,8 +298,10 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
 }#descdata h1{
     font-size: 30px;
    
-}#info{
+}
+#info{
     width:100%;
+    height:30%;
     border-radius:30px;
     background-color: #7b6c6c00;
     font-family: Rubik,Arial, Helvetica, sans-serif;
@@ -310,7 +310,7 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
     align-items: center;
     justify-content: center;
 }.box2{
-    height:170px;
+    height:180px;
 margin:5px;
     background-color: #a8d5ff;
       display: flex;
@@ -319,15 +319,12 @@ margin:5px;
       text-align: center;
       font-family: Google sans text,Arial, Helvetica, sans-serif;
      
-        width: 170px; /* adjust to control the size */
-        aspect-ratio: 1;
-        --g:/10.07% 10.07% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
-        mask: radial-gradient(100% 100%,#000 calc(44.683% - 1px),#0000 44.683%) intersect,radial-gradient(#000 0 0) exclude,100% 50% var(--g),98.746% 61.126% var(--g),95.048% 71.694% var(--g),89.092% 81.174% var(--g),81.174% 89.092% var(--g),71.694% 95.048% var(--g),61.126% 98.746% var(--g),50% 100% var(--g),38.874% 98.746% var(--g),28.306% 95.048% var(--g),18.826% 89.092% var(--g),10.908% 81.174% var(--g),4.952% 71.694% var(--g),1.254% 61.126% var(--g),0% 50% var(--g),1.254% 38.874% var(--g),4.952% 28.306% var(--g),10.908% 18.826% var(--g),18.826% 10.908% var(--g),28.306% 4.952% var(--g),38.874% 1.254% var(--g),50% 0% var(--g),61.126% 1.254% var(--g),71.694% 4.952% var(--g),81.174% 10.908% var(--g),89.092% 18.826% var(--g),95.048% 28.306% var(--g),98.746% 38.874% var(--g);
+      width:180px;
+      border-radius: 20px;
    
       
    
-}
-.box2 h1{
+}.box2 h1{
     font-size: 20px;
     margin:30px;
 }.box2 p{
@@ -374,4 +371,6 @@ margin:5px;
     
 }@keyframes rot{
 100%{rotate:180deg}
+}#todaydata{
+    height:250px;
 }
