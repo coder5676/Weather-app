@@ -2,9 +2,10 @@ document.getElementById("allow").addEventListener("click",()=>{
     document.documentElement.requestFullscreen();
 }); 
 function allow(){
+    document.getElementById("loader").style.display="block";
     document.getElementById("perm").classList.add("open");
     showlocationdata();
-    document.getElementById("loader").style.display="block";
+    
 }
 
 function openswipebox(){
@@ -13,13 +14,12 @@ document.getElementById("swipebox").classList.add("openswipebox");
 function closeswipebox(){
 document.getElementById("swipebox").classList.remove("openswipebox");
 showcitydata();
-document.getElementById("loader").style.display="block";
+
 
 }
 function closeswipebox2(){
 document.getElementById("swipebox").classList.remove("openswipebox");
 showlocationdata();
-document.getElementById("loader").style.display="block";
 
 
 }
@@ -42,7 +42,9 @@ document.getElementById("longitude").innerHTML=position.coords.longitude;
 function showcity(){
 if(document.getElementById("city").value!=""){
 const city=document.getElementById("city").value.trim();
-document.getElementById("name").innerHTML=city;}
+document.getElementById("name").innerHTML=city;
+document.getElementById("loader").style.display="block";
+}
 
 
 }
@@ -54,9 +56,10 @@ if(document.getElementById("name").innerHTML!=""){
 }
 
 function showlocationdata(){
-if(document.getElementById("latitude").innerHTML!="none"){
+if(document.getElementById("latitude").innerHTML!=""){
     const lat=document.getElementById("latitude").innerHTML;
     const lon=document.getElementById("longitude").innerHTML;
+    document.getElementById("loader").style.display="block";
     getweatherbylocation(lat,lon);
 }
 }
@@ -98,9 +101,9 @@ else{
 }
 /*scroll animation*/
 var nightsky="linear-gradient(130deg,#4d5056,#191b1c)";
-var cloudysky="linear-gradient(30deg,rgb(65, 162, 155), rgb(91, 219, 213))";
+var cloudysky="linear-gradient(120deg,rgb(158, 255, 236),rgb(88, 233, 255))";
 var rainsky="linear-gradient(130deg,#9cb4c5,#2e3132)";
-var daysky="linear-gradient(240deg,rgb(120, 192, 255),rgb(147, 224, 255))";
+var daysky="linear-gradient(120deg,rgb(137, 237, 255),rgb(169, 248, 255))";
 var color="";
 var boxcolor="";
 var textcolor="";
@@ -118,19 +121,13 @@ function daynightanimations(sunrise,sunset,descr){
     const nosun=["scattered clouds","broken clouds","overcast clouds"];
     const res=check(rt,st,d);
     console.log(res);
-    document.getElementById("show").classList.remove("sunanimation");
     if(res==0){
         textcolor="white";
         graphcolor="white";
         color=nightsky;
-
-
-      
         if(rainatm.indexOf(descr)>-1){
-        document.getElementById("show").style.backgroundColor="white";
-        document.getElementById("show").style.boxShadow="0px 0px 500px 30px white";
-
-         
+        document.getElementById("show").style.backgroundColor="#b6c4cc";
+        document.getElementById("show").style.boxShadow="0px 0px 500px 30px #b6c4cc";
 
             raining();
             boxcolor="#222427";
@@ -160,21 +157,25 @@ function daynightanimations(sunrise,sunset,descr){
     }
     else{
         graphcolor="#A2ABAC";
-    document.getElementById("show").classList.add("sunanimation");
 
         
     if(rainatm.indexOf(descr)>-1){
         color=rainsky;
-        document.getElementById("show").style.backgroundColor="white";
-        
-      
+        document.getElementById("show").style.backgroundColor="#b6c4cc";
+        document.getElementById("show").style.boxShadow="0px 0px 500px 30px #b6c4cc";
+
         raining();
         boxcolor="black";
-        textcolor="black";
+        textcolor="white";
     }
     else if(normalday.indexOf(descr)>-1){
         color=daysky;
         document.getElementById("show").style.backgroundColor="#fff07c";
+        document.getElementById("show").style.boxShadow="0px 0px 500px 30px #fff07c";
+
+        
+      
+
        
         norain();
         boxcolor= "white";
@@ -183,9 +184,8 @@ function daynightanimations(sunrise,sunset,descr){
     }
     else if(nosun.indexOf(descr)>-1){
         color=cloudysky;
-        document.getElementById("show").style.backgroundColor="transparent";
-        
-
+        document.getElementById("show").style.backgroundColor="#e0e6e9";
+        document.getElementById("show").style.boxShadow="0px 0px 500px 30px #fff07c";
         norain();
         boxcolor="white";
         textcolor="black";
@@ -196,6 +196,8 @@ function daynightanimations(sunrise,sunset,descr){
         
         color="linear-gradient(130deg,#cfdef2,#b6bac3)";
         document.getElementById("show").style.backgroundColor="transparent";
+        document.getElementById("show").style.boxShadow="0px 0px 500px 30px transparent";
+
 
         norain();
         boxcolor="white";
@@ -211,11 +213,10 @@ function daynightanimations(sunrise,sunset,descr){
 
 window.addEventListener('scroll',()=>{
 const y=window.scrollY;
-if(y==0){
-
+if(y<50){
 document.getElementById("scrollbox").style.backgroundColor="";
-document.getElementById("descdata").style.background=boxcolor;
-document.getElementById("descdata").style.color=textcolor;
+/*document.getElementById("descdata").style.background=boxcolor;
+document.getElementById("descdata").style.color=textcolor;*/
 document.getElementById("but1").style.color=textcolor;
 
 document.getElementById("scrollbox").style.transitionDuration="0s";
@@ -223,8 +224,8 @@ document.getElementById("main").style.transitionDuration="0s";
 document.getElementById("main").style.height="110%";
 document.getElementById("main").style.zIndex="0";
 document.getElementById("temp").style.transform="translate(0%,0%) scale(1)";
-document.getElementById("description").style.transform="translate(0%,0%) scale(1)"
-document.getElementById("feels").style.visibility="visible"
+document.getElementById("description").style.transform="translate(0%,0%) scale(1)";
+document.getElementById("feels").style.visibility="visible";
 document.getElementById("minmax").style.visibility="visible";
 document.getElementById("svg").style.visibility="visible";
 document.getElementById("main").style.background=color;
@@ -236,10 +237,8 @@ document.getElementById("description").style.color=textcolor;
 else{
     
     document.getElementById("but1").style.color="white";
-
     document.getElementById("svg").style.visibility="hidden";
-document.getElementById("descdata").style.color=textcolor;
-document.getElementById("descdata").style.backgroundColor=boxcolor;
+
 document.getElementById("scrollbox").style.background="black";
 document.getElementById("main").style.height="25%";
 document.getElementById("main").style.zIndex="2";
@@ -288,9 +287,6 @@ catch(err){
     document.getElementById("temp").innerHTML="🤕";
     document.getElementById("location").innerHTML="Location data is unavailable..";
    console.log(err);
-
-
-
 }
 }
 
@@ -348,8 +344,8 @@ document.getElementById("s").innerHTML=data2.wind.speed;
 document.getElementById("a").innerHTML=data2.wind.deg;
 document.getElementById("p").innerHTML=data2.main.pressure;
 document.getElementById("v").innerHTML=data2.visibility;
-document.getElementById("sunrise").innerHTML="☀️: "+convert(data2.sys.sunrise);
-document.getElementById("sunset").innerHTML="🌙: "+convert(data2.sys.sunset);
+document.getElementById("sunrise").innerHTML="☀️| "+convert(data2.sys.sunrise);
+document.getElementById("sunset").innerHTML="🌙| "+convert(data2.sys.sunset);
 daynightanimations(data2.sys.sunrise,data2.sys.sunset,data2.weather[0].description);
 const description=data2.weather[0].description;
 desc(description);
@@ -363,11 +359,16 @@ document.getElementById("feels").style.color=textcolor;
 document.getElementById("minmax").style.color=textcolor;
 document.getElementById("but1").style.color=textcolor;
 
+const boxes = document.querySelectorAll('.box');
 
-for(i=0;i<8;i++){
-    document.getElementsByClassName("box")[i].style.backgroundColor=boxcolor;
-    document.getElementsByClassName("box")[i].style.color=textcolor;
-}
+        // Iterate over each box and change its background color
+        boxes.forEach(box => {
+            box.style.backgroundColor = boxcolor;
+            box.style.color = textcolor;
+
+        });
+
+
 
 hum=data2.main.humidity;
 descrp=data2.weather[0].description;
@@ -399,34 +400,14 @@ for(j=0;j<8;j++){
     arr.push(data.list[j].main.temp);
     todarr.push(data.list[j].weather[0].main);
     tomarr.push(data.list[j+8].weather[0].main);
+    document.getElementById(humarr[j]).innerHTML=data.list[j].main.humidity+"%";
+   
     
 }
-for(h=0;h<8;h++){
-document.getElementById(humarr[h]).innerHTML=data.list[h].main.humidity+"%";
-
-}
-
 for(k=0;k<5;k++){
     arr2.push(data.list[k*8].main.temp);
+}
 
-    
-}
-var sum=0;
-var sum2=0;
-for (l=0;l<8;l++){
-    sum=sum+data.list[l].main.temp;
-    sum2=sum2+data.list[l+8].main.temp;
-    tmarr.push(String(data.list[l].dt_txt).slice(11,13));
-}
-console.log(sum);
-console.log(sum2);
-if(sum>0 && sum2>0){
-todavg=sum/8;
-tomavg=sum2/8;}
-else{
-    todavg=sum;
-    tomavg=sum2;
-}
 
 var x2values=["Today","Tommorow",week[(d+2)%7],week[(d+3)%7],week[(d+4)%7]];
 plotgraph(arr,xvalues,"myChart");
@@ -447,7 +428,7 @@ function desc(description){
 const quote=[" it's a nice weather outside.","Clouds are beautiful outside","Don't forget your umbrella","Winds are speedy today","Look plants can dance too.","Weather is getting watery.","Avoid going out it's lightning.","Nice day for a snowman.","Drive safe low visibility","It could rain just wait","Nice time for a tea","Outside is beautiful in rain.","Heavy rain avoid going out today","It may be foggy outside","Raining slowly carry an umbrella."];
 const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze","light intensity shower rain"];
 const position=desc.indexOf(description);
-document.getElementById("desc").innerHTML="⁂ "+quote[position];
+document.getElementById("desc").innerHTML="⁂ | "+quote[position];
 };
 
 function readout(message){
@@ -478,7 +459,7 @@ recognition.onresult=(event)=>{
     }
     else if(transcript.includes("temperature") || transcript.includes("weather")){
         saytemp();
-    }
+    }/*
     else if(transcript.includes("temperature") && transcript.includes("tommorow")){
        sayweathertommorow()
     }
@@ -505,7 +486,7 @@ recognition.onresult=(event)=>{
      }
      else if(transcript.includes("expect") && transcript.includes("today")){
         reccomendtoday();
-     }
+     }*/
      else {
         readout("Sorry   I don't know about it")
      }
@@ -521,13 +502,13 @@ function saytemp(){
      readout(say);
  }
  function sayweathertoday(){
-   var say="hi, today in"+loc+"temperature with average of"+todavg+"with"+descrp;
+   var say="hi, today in"+loc+"temperature with average of"+"with"+descrp;
    console.log(todavg);
     readout(say);
  }
-
+/*
 function sayweathertommorow(){
-    var say="Hello ,tommorow in "+loc+"temperature with average of"+tomavg+"with"+descrp;
+    var say="Hello ,tommorow in "+loc+"temperature with average of"+"with"+descrp;
    readout(say);
 
 }
@@ -606,7 +587,7 @@ function reccomendtoday(){
      readout(say);
 
 }
-
+*/
 function plotgraph(arr,xvalues,chart){
 const xValues = xvalues;
 const yValues = arr;
