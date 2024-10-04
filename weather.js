@@ -227,7 +227,8 @@ document.getElementById("temp").style.transform="translate(0%,0%) scale(1)";
 document.getElementById("description").style.transform="translate(0%,0%) scale(1)";
 document.getElementById("feels").style.visibility="visible";
 document.getElementById("minmax").style.visibility="visible";
-document.getElementById("svg").style.visibility="visible";
+document.getElementById("bghimg").style.visibility="visible";
+
 document.getElementById("main").style.background=color;
 document.getElementById("temp").style.color=textcolor;
 document.getElementById("location").style.color=textcolor;
@@ -237,7 +238,7 @@ document.getElementById("description").style.color=textcolor;
 else{
     
     document.getElementById("but1").style.color="white";
-    document.getElementById("svg").style.visibility="hidden";
+    document.getElementById("bghimg").style.visibility="hidden";
 
 document.getElementById("scrollbox").style.background="black";
 document.getElementById("main").style.height="25%";
