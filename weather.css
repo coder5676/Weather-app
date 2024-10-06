@@ -407,10 +407,10 @@ margin:5px;
     position: absolute;
     z-index: -1;
     background-image: url("weatherback.jpg");
-    opacity: 30%;
-    background-position:-200px -220px;
+    opacity: 35%;
+    background-position:-300px -300px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 1200px;
     top:0;
     left:0;
 
