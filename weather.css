@@ -1,5 +1,7 @@
 
-
+body{
+    background-color: #000000;
+}
     .perm{
         position:fixed;
         width:100%;
@@ -16,7 +18,7 @@
         background-image: url("weatherback.jpg");
         background-repeat: no-repeat;
         background-size: cover;
- 
+
         font-family:google sans text ,Arial, Helvetica, sans-serif;
     }.open{
         visibility:hidden;
@@ -65,10 +67,7 @@
    margin-top: -20px;
     color:rgb(0, 0, 0);
     font-weight: 800;
-        font-family:Rubik,Arial, Helvetica, sans-serif;
-
-  
-    
+    font-family:Rubik,Arial, Helvetica, sans-serif;
     /*tempstyle*/
    /* transform:translate(-35%,-110%) scale(0.8);
     color:white;*/
@@ -96,13 +95,13 @@
     
 }.ask{
     position:absolute;
-    left:83%;
     width:45px;
     height:45px;
-   top:240px;
    border: 0px;
     border-radius: 30px;
     color:white;
+  margin-left: 280px;
+  margin-top: 20px;
     background:linear-gradient(120deg,rgb(0, 203, 243),rgb(174, 45, 255));
 }@keyframes ai{
     100%{rotate:360deg;}
@@ -222,18 +221,20 @@
     width:100%;
     height:300%;
     left:0;
+    top:50%;
     scrollbar-width: none;
-    top:12%;
     display:flex;
+    flex-wrap: wrap;
     background-color: transparent;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap:20px;
     border-radius: 20px 20px 0px 0px ;
-    gap:10px;
 
 }
 .box{
     width:92%;
+    max-width: 400px;
     height:200px;
     top:8%;
     overflow-x: scroll;
@@ -243,13 +244,11 @@
     user-select: none;
     border-radius: 30px;
     justify-content: space-around;
-    background-color: #d6fdff;
+    background-color: #ffffff;
 }
 .box h1{
-    background-color: #0e0e0e;
-    padding:5px;
-    border-radius: 15px;
-    color:white;
+    position: absolute;
+    font-size: 15px;
 }
 .tt{
    font-size: 13px;
@@ -296,19 +295,28 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
 }#mychart2{
     max-width: 92%;
     border-radius: 30px;
+    max-height: 400px;
 
 }#descdata{
     display:flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items:flex-start;
     justify-content: center;
-    margin-top: 310px;
+    margin-top: 10px;
     max-height: 140px;
+    
     font-family: google sans text,Arial, Helvetica, sans-serif;
 }#descdata h1{
-    font-size: 30px;
-   
+    font-size: 15px;
+   margin-left: 20px;
+   margin-bottom: 100px;
+}#descdata p{
+    margin-left: 20px;
+    text-align: left;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-right: 20px;
+
 }
 #info{
     width:100%;
@@ -413,11 +421,11 @@ margin:5px;
 #bghimg{
     position: absolute;
     z-index: -1;
-    background-image: url("R.png");
+    background-image: url("city.png");
     background-position:center;
     background-repeat: no-repeat;
-    opacity:10%;
-    background-size: 1200px;
+    opacity:20%;
+    background-size: 700;
 
     top:0;
     left:0;
@@ -426,4 +434,18 @@ width:100%;
 height:100%;
 border-radius: 0px 0px 30px 30px;
 
+}#sr{
+    width: 95%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height:100px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+
+}#sr p{
+    font-size: 20px;
+}#myChart{
+    max-height: 400px;
 }
