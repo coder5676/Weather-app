@@ -16,7 +16,7 @@
         background-image: url("weatherback.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-
+ 
         font-family:google sans text ,Arial, Helvetica, sans-serif;
     }.open{
         visibility:hidden;
@@ -64,13 +64,18 @@
     font-size: 130px;
    margin-top: -20px;
     color:rgb(0, 0, 0);
-    font-weight: 1000;
-  
+    font-weight: 800;
+    font-family:Rubik;
+    text-shadow: 3px 3px 3px;
     
     /*tempstyle*/
    /* transform:translate(-35%,-110%) scale(0.8);
     color:white;*/
-}#feels{
+}#temp i{
+    font-size: 50px;
+    transform: translate(0%,-60px);
+}
+#feels{
    margin-top: -70px;
 
 }#location{
@@ -114,8 +119,9 @@
    right:-60px;
    background-color: #fffb21;
    border-radius: 200px;
-   box-shadow: 0px 0px 400px 0px #fff07c;
-   animation:shine 4s infinite
+   box-shadow: 0px 0px 400px 0px #fff8c5;
+   animation:shine 4s infinite;
+   opacity: 50%;
 
    
 }@keyframes shine{
@@ -406,16 +412,17 @@ margin:5px;
 #bghimg{
     position: absolute;
     z-index: -1;
-    background-image: url("weatherback.jpg");
-    opacity: 40%;
+    background-image: url("R.png");
     background-position:center;
     background-repeat: no-repeat;
-    background-size:cover;
+    opacity:10%;
+    background-size: 1200px;
+
     top:0;
     left:0;
 
 width:100%;
-height:48%;
+height:100%;
 border-radius: 0px 0px 30px 30px;
 
 }
