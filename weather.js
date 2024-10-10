@@ -350,9 +350,9 @@ document.getElementById("sunrise").innerHTML="☀️| "+convert(data2.sys.sunris
 document.getElementById("sunset").innerHTML="🌙| "+convert(data2.sys.sunset);
 daynightanimations(data2.sys.sunrise,data2.sys.sunset,data2.weather[0].description);
 
-desc(description);
-fg=" ৹ Humidity is "+data2.main.humidity+"% with "+data2.weather[0].description;
-document.getElementById("desc2").innerHTML=fg;
+
+fg="humidity is "+data2.main.humidity+"% with "+data2.weather[0].description;
+document.getElementById("desc2").innerHTML=desc(description)+". "+fg;
 document.getElementById("main").style.background=color;
 document.getElementById("description").style.color=textcolor;
 document.getElementById("location").style.color=textcolor;
@@ -430,7 +430,7 @@ function desc(description){
 const quote=[" it's a nice weather outside.","Clouds are beautiful outside","Don't forget your umbrella","Winds are speedy today","Look plants can dance too.","Weather is getting watery.","Avoid going out it's lightning.","Nice day for a snowman.","Drive safe low visibility","It could rain just wait","Nice time for a tea","Outside is beautiful in rain.","Heavy rain avoid going out today","It may be foggy outside","Raining slowly carry an umbrella."];
 const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze","light intensity shower rain"];
 const position=desc.indexOf(description);
-document.getElementById("desc").innerHTML="⁂ | "+quote[position];
+return quote[position];
 };
 
 function readout(message){
