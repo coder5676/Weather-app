@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="weather.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google Sans Text">
+    
+
+    <script src="https://kit.fontawesome.com/954e575aaa.js" crossorigin="anonymous"></script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -15,6 +18,7 @@
   
     <div id="perm" class="perm"style="font-family:Rubik,Arial, Helvetica, sans-serif;">
      <h1>Weather</h1>
+     <h2 style="position: absolute;font-size: 150px;text-align: center;"><i class="fa-solid fa-temperature-high"></i></h2>
         <button id="allow" onclick="allow()">Get started</button>
     </div>
     <div id="main">
@@ -29,23 +33,23 @@
         <h1 id="r5" class="r5"></h1>
 
         <div id="main1">
-            <button id="but1" class="but1" onclick="openswipebox()">←</button>
+            <button id="but1" class="but1" onclick="openswipebox()"><i class="fa-solid fa-arrow-left"></i></button>
            <div id="show" class="show"></div>
-            <p id="location"></p>
-            <p id="description"></p>
-            <h1 id="temp"style="margin-left:20px"></h1>
-       <p id="feels" ></p>
-          <p id="minmax"></p>
+            <p id="location">dd</p>
+            <p id="description">dd</p>
+            <h1 id="temp"style="margin-left:20px">35</h1>
+       <p id="feels" >dd</p>
+          <p id="minmax">dd</p>
         </div>
     </div>
  <div id="swipebox" class="swipebox">
     <input id="city" placeholder="City/Country🚌">
-    <button id="search" onclick="showcity()">🔍</button>
+    <button id="search" onclick="showcity()"><i class="fa-solid fa-magnifying-glass"></i></button>
     <p style="margin-top: 200px;">My city</p>
     <div id="cityinfo" onclick="closeswipebox()"><p id="name"></p><p id="citytemp"></p><p id="tempicon1"></p></div>
     <p>My location</p>
     <div id="locationinfo" onclick="closeswipebox2()"><p id="latitude"></p><p id="longitude"></p><p id="place"></p></div>
-    <button id="getlocation" onclick="getlocation()">◉ Location</button>
+    <button id="getlocation" onclick="getlocation()"><i class="fa-solid fa-location-dot"></i></button>
     <button id="add" onclick="addcity()">+</button>
 
 </div>
@@ -117,11 +121,12 @@
         <canvas id="mychart2" class="box" ></canvas>
          <div id="info">
         <div id="feelslike" class="box2">
-        <h1 >Feels like</h1>
+        <h1 >Feels like </h1>
         <p id="f">23</p>
         </div>
         <div id="humidity" class="box2">
-            <h1 >Humidity</h1>
+            <h1 >Humidity </h1>
+            <h1></h1>
             <p id="h">23</p>
          
         </div>
