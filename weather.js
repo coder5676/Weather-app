@@ -179,7 +179,7 @@ function daynightanimations(sunrise,sunset,descr){
        
         norain();
         boxcolor= "white";
-        textcolor="black";
+        textcolor="#292A2C";
 
     }
     else if(nosun.indexOf(descr)>-1){
@@ -188,7 +188,7 @@ function daynightanimations(sunrise,sunset,descr){
         document.getElementById("show").style.boxShadow="0px 0px 500px 30px #fff07c";
         norain();
         boxcolor="white";
-        textcolor="black";
+        textcolor="#292A2C";
 
 
     }
@@ -201,7 +201,7 @@ function daynightanimations(sunrise,sunset,descr){
 
         norain();
         boxcolor="white";
-        textcolor="black";
+        textcolor="#292A2C";
 
 
     }
@@ -334,7 +334,8 @@ var maintemp=0;
 var loc="";
 var tmarr=[];
 function setdetails(data2){
-document.getElementById("temp").innerHTML=Math.round(data2.main.temp)+"°";
+    const description=data2.weather[0].description;
+document.getElementById("temp").innerHTML=Math.round(data2.main.temp)+weathericon(description);
 document.getElementById("location").innerHTML=data2.name +","+data2.sys.country;
 document.getElementById("description").innerHTML=data2.weather[0].main;
 document.getElementById("feels").innerHTML="Feels Like "+Math.round(data2.main.feels_like)+"°";
@@ -348,7 +349,7 @@ document.getElementById("v").innerHTML=data2.visibility;
 document.getElementById("sunrise").innerHTML="☀️| "+convert(data2.sys.sunrise);
 document.getElementById("sunset").innerHTML="🌙| "+convert(data2.sys.sunset);
 daynightanimations(data2.sys.sunrise,data2.sys.sunset,data2.weather[0].description);
-const description=data2.weather[0].description;
+
 desc(description);
 fg=" ৹ Humidity is "+data2.main.humidity+"% with "+data2.weather[0].description;
 document.getElementById("desc2").innerHTML=fg;
@@ -416,7 +417,7 @@ plotgraph(arr2,x2values,"mychart2");
 }
 function weathericon(description){
     const desc=["clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","thunderstorm","snow","mist","overcast clouds","light rain","moderate rain","heavy intensity rain","haze","light intensity shower rain"];
-    const descicon=["☀️","⛅","🌨️","🌥️","🌧️","☔","⚡","☃️","😶‍🌫️","☁️","🌧️","☔","⛈️","😶‍🌫️","🦚"];
+    const descicon=['<i class="fa-solid fa-sun"></i>','<i class="fa-solid fa-cloud-sun"></i>','<i class="fa-solid fa-smog"></i>','<i class="fa-solid fa-cloud"></i>','<i class="fa-solid fa-cloud-rain"></i>','<i class="fa-solid fa-umbrella"></i>','<i class="fa-solid fa-cloud-bolt"></i>','<i class="fa-regular fa-snowflake"></i>','<i class="fa-solid fa-cloud-meatball"></i>','<i class="fa-solid fa-cloud-sun"></i>','<i class="fa-solid fa-cloud-rain"></i>','<i class="fa-solid fa-cloud-showers-heavy"></i>','<i class="fa-solid fa-cloud-bolt"></i>','<i class="fa-solid fa-cloud-meatball"></i>','<i class="fa-solid fa-cloud-showers-heavy"></i>'];
     const position=desc.indexOf(description);
     return descicon[position];
 }
