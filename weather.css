@@ -18,7 +18,8 @@ body{
         background-image: url("weatherback.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-     
+        visibility:hidden;
+
         font-family:google sans text ,Arial, Helvetica, sans-serif;
     }.open{
         visibility:hidden;
@@ -63,11 +64,11 @@ body{
     border-radius: 0px 0px 30px 30px;
     
 }#temp{
-    font-size: 130px;
+    font-size: 170px;
    margin-top: -20px;
     color:rgb(0, 0, 0);
-    font-weight: 800;
-    font-family:Rubik,Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-family:lexend,Arial, Helvetica, sans-serif
     /*tempstyle*/
    /* transform:translate(-35%,-110%) scale(0.8);
     color:white;*/
@@ -76,12 +77,13 @@ body{
     transform: translate(0%,-60px);
 }
 #feels{
-   margin-top: -70px;
+   margin-top: -130px;
 
 }#location{
     margin-top: 30px;
     font-size: 20px;
     margin-bottom: 60px;
+    font-weight: 900;
     /*location style*/
 }
 #but1{
@@ -220,7 +222,7 @@ body{
     position: absolute;
     width:100%;
     left:0;
-    top:50%;
+    margin-top: 400px;
     scrollbar-width: none;
     display:flex;
     flex-wrap: wrap;
@@ -441,10 +443,13 @@ border-radius: 0px 0px 30px 30px;
     height:100px;
     border-radius: 20px;
     margin-bottom: 20px;
-    background-color: #ffffff;
+    background-color: #1c1c1c;
 
 }#sr p{
     font-size: 20px;
+    background-color: white;
+    padding:10px;
+    border-radius: 30px;
 }#myChart{
     max-height: 400px;
 }
