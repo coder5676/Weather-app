@@ -253,7 +253,7 @@ document.getElementById("main").style.zIndex="2";
 document.getElementById("main").style.background="linear-gradient(120deg,black,black)";
 document.getElementById("temp").style.transform="translate(-65%,-80%) scale(0.5)";
 document.getElementById("description").style.transform="translate(0%,-80%) scale(1.5)";
-document.getElementById("feels").style.visibility="hidden"
+document.getElementById("feels").style.visibility="hidden";
 document.getElementById("minmax").style.visibility="hidden";
 document.getElementById("hh").style.visibility="hidden";
 document.getElementById("temp").style.color="white";
@@ -374,6 +374,9 @@ const boxes = document.querySelectorAll('.box');
         boxes.forEach(box => {
             box.style.backgroundColor = boxcolor;
             box.style.color = textcolor;
+            box.style.borderColor = boxcolor;
+
+           
 
         });
 
