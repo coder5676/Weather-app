@@ -42,6 +42,7 @@ function getlocation(){
       } else {
         console.log("Geolocation is not supported by this browser.");
       }
+      showlocationdata();
 }
 
 
