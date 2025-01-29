@@ -89,7 +89,7 @@ body{
    margin-top: -20px;
     color:rgb(0, 0, 0);
     font-weight: 900;
-    font-family:Lexend,Arial, Helvetica, sans-serif
+    font-family:lexend,Arial, Helvetica, sans-serif
     /*tempstyle*/
    /* transform:translate(-35%,-110%) scale(0.8);
     color:white;*/
@@ -317,12 +317,13 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
     width: 92%;
     max-width: 400px;
     border-radius: 30px;
+    bordeR:0px;
 }#mychart2{
     margin-top: 40px;
     width: 92%;
     max-width: 400px;
     border-radius: 30px;
-
+    bordeR:0px;
 
 }#descdata{
     display:flex;
