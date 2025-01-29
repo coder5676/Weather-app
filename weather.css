@@ -1,6 +1,8 @@
 
+
 body{
     background-color: #000000;
+    font-family:questrial,Arial, Helvetica, sans-serif;
 }
     .perm{
         position:fixed;
@@ -8,40 +10,59 @@ body{
         height:100%;
         top:0;
         left:0;
-      background-color: rgb(255, 255, 255);
+      background-color:rgb(0, 0, 0);
         z-index: 3;
         display:flex;
         flex-direction: column;
         justify-content:space-around;
         align-items: center;
         text-align: center;
-        background-image: url("weatherback.jpg");
+      
         background-repeat: no-repeat;
         background-size: cover;
-     
+        background-image: url("e2.png");
+        background-position: center;
+        background-size: 200px;
+        background-repeat: no-repeat;
 
-        font-family:google sans text ,Arial, Helvetica, sans-serif;
+    font-family: questrial,Arial, Helvetica, sans-serif;
     }.open{
         visibility:hidden;
     }.perm h1{
-     color:rgb(0, 0, 0);
+     color:lightblue;
+     font-weight: 400;
      margin-top: -20px;
      font-size: 70px;
      font-weight: 1500;
+    font-family: questrial,Arial, Helvetica, sans-serif;
+    
+
      
+    }#perm h2{
+        font-size: 17px;
+        margin-top: 100px;
+        margin-bottom: -80px;
+        color:rgb(237, 237, 237);
+    font-family: questrial,Arial, Helvetica, sans-serif;
+    padding:10px;
+    border-radius: 30px;
+    bordeR:1px solid lightblue;
     }
 
     #allow{
-        background-color: #000000;
+        background-color:lightblue;
         width: 270px;
-        color:rgb(255, 255, 255);
+        padding:15px;
+        color:rgb(0, 0, 0);
         height:60px;
-        font-size: 30px;
+        font-size: 18px;
         font-weight: 600;
         border:0px;
         margin-top:-60px;
         border-radius: 40px;
         align-self:center;
+        font-weight: 400;
+        font-family: questrial,Arial, Helvetica, sans-serif;
     }#allow:active{
         background-color: #620dff;
         color:white;
@@ -60,7 +81,7 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    font-family: Rubik,Arial, Helvetica, sans-serif;
+    font-family: questrial,Arial, Helvetica, sans-serif;
     border-radius: 0px 0px 30px 30px;
     
 }#temp{
@@ -68,7 +89,7 @@ body{
    margin-top: -20px;
     color:rgb(0, 0, 0);
     font-weight: 900;
-    font-family:lexend,Arial, Helvetica, sans-serif
+    font-family:questrial,Arial, Helvetica, sans-serif
     /*tempstyle*/
    /* transform:translate(-35%,-110%) scale(0.8);
     color:white;*/
@@ -134,7 +155,7 @@ body{
 }.swipebox{
    background-color:black;
    width:100%;
-   font-family: Rubik,Arial, Helvetica, sans-serif;
+   font-family: questrial,Arial, Helvetica, sans-serif;
    height:100%;
    position: fixed;
    left:0;
@@ -154,7 +175,7 @@ body{
 }.swipebox input{
     position:absolute;
     top:10%;
-    font-family: Rubik,Arial, Helvetica, sans-serif;
+    font-family: questrial,Arial, Helvetica, sans-serif;
   width:85%;
   height:60px;
   border-radius: 10px;
@@ -234,25 +255,28 @@ body{
 }
 .box{
     width:92%;
-    max-width: 400px;
+    max-width: 360px;
     height:200px;
     top:8%;
     overflow-x: scroll;
     display:flex;
-    font-family: Rubik,Arial, Helvetica, sans-serif;
+    font-family: questrial,Arial, Helvetica, sans-serif;
     scrollbar-width:none;
     user-select: none;
     border-radius: 30px;
     justify-content: space-around;
-    background-color: #ffffff;
+    background-color:white;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+
 }
 .box h1{
     position: absolute;
     font-size: 15px;
 }
 .tt{
-   font-size: 13px;
-   font-family:Google sans text,Arial, Helvetica, sans-serif;
+   font-size: 15px;
+   font-family:questrial,Arial, Helvetica, sans-serif;
    display:flex;
    flex-direction: column;
    align-items: center;
@@ -290,12 +314,15 @@ body{
 }
 to{transform:translate(-3000%,600%) rotate(20deg)};
 }#myChart{
-    max-width: 92%;
+    width: 92%;
+    max-width: 400px;
     border-radius: 30px;
 }#mychart2{
-    max-width: 92%;
+    margin-top: 40px;
+    width: 92%;
+    max-width: 400px;
     border-radius: 30px;
-    max-height: 400px;
+
 
 }#descdata{
     display:flex;
@@ -305,7 +332,7 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
     margin-top: 10px;
     max-height: 140px;
     
-    font-family: google sans text,Arial, Helvetica, sans-serif;
+    font-family: questrial,Arial, Helvetica, sans-serif;
 }#descdata h1{
     font-size: 15px;
    margin-left: 20px;
@@ -320,14 +347,14 @@ to{transform:translate(-3000%,600%) rotate(20deg)};
 }
 #info{
     width:100%;
-    height:24%;
     border-radius:30px;
     background-color: #7b6c6c00;
-    font-family: Rubik,Arial, Helvetica, sans-serif;
+    font-family: questrial,Arial, Helvetica, sans-serif;
     display:flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
 }/*.box2{
     height:180px;
 margin:5px;
@@ -336,7 +363,7 @@ margin:5px;
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      font-family: Google sans text,Arial, Helvetica, sans-serif;
+      font-family: questrial,Arial, Helvetica, sans-serif;
      
       width:180px;
       border-radius: 20px;
@@ -373,6 +400,7 @@ margin:5px;
 .box2{
     height:70px;
     width:95%;
+    max-width: 400px;
     background-color: #161518;
     margin:10px;
     border-radius: 20px;
@@ -443,6 +471,8 @@ border-radius: 0px 0px 30px 30px;
     border-radius: 20px;
     margin-bottom: 20px;
     background-color: #1c1c1c;
+    max-width: 900px;
+    margin-top: 20px;
 
 }#sr p{
     font-size: 20px;
