@@ -28,16 +28,22 @@ showlocationdata();
 
 /*function to get location*/
 function getlocation(){
-if (navigator.geolocation) {
-navigator.geolocation.getCurrentPosition(showPosition);
-} else {
-document.getElementById("locationinfo").style.backgroundColor = "red";
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            document.getElementById("latitude").innerHTML=position.coords.latitude;
+            document.getElementById("longitude").innerHTML=position.coords.longitude;
+    
+          },
+          (error) => {
+            console.error("Error Code = " + error.code + " - " + error.message);
+          }
+        );
+      } else {
+        console.log("Geolocation is not supported by this browser.");
+      }
 }
-}
-function showPosition(position) {
-document.getElementById("latitude").innerHTML=position.coords.latitude;
-document.getElementById("longitude").innerHTML=position.coords.longitude;
-}
+
 
 function showcity(){
 if(document.getElementById("city").value!=""){
