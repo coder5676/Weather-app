@@ -33,7 +33,7 @@ function getlocation(){
           (position) => {
             document.getElementById("latitude").innerHTML=position.coords.latitude;
             document.getElementById("longitude").innerHTML=position.coords.longitude;
-    
+    getweatherbylocation(position.coords.latitude,position.coords.longitude)
           },
           (error) => {
             console.error("Error Code = " + error.code + " - " + error.message);
@@ -42,7 +42,7 @@ function getlocation(){
       } else {
         console.log("Geolocation is not supported by this browser.");
       }
-      showlocationdata();
+     
 }
 
 
